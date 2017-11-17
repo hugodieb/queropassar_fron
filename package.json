@@ -1,0 +1,20 @@
+{ "name": "with-vuetify",
+  "dependencies": {
+    "axios": "^0.16.1",
+    "nuxt": "^1.0.0-rc11",
+    "moment": "^2.19.1",
+    "vue2-filters": "0.1.9",
+    "vuetify": "^0.16"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "analyze": "nuxt build --analyze"
+  },
+  "devDependencies": {
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1"
+  }
+}
