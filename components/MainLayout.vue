@@ -1,9 +1,14 @@
 <script>
 import Perfil from '~/components/Perfil'
+import LoginSocialFake from '~/components/LoginSocialFake'
 import Vuex from 'vuex'
 export default {
-  components: {},
-  
+  components: {LoginSocialFake},
+  computed: Object.assign(
+    {}, Vuex.mapGetters([
+      'logged_user'
+    ])
+  ),
   data: () => ({
     dialog: false,
     drawer: false,
@@ -23,6 +28,16 @@ export default {
   props: {
     source: String
   },
+  methods: {
+    open_login_social_fake(evt){
+      if(process.env.API_MOCK == '1'){
+        this.$refs.login_social_fake.open();
+      }
+      if(evt){
+        evt.stopPropagation();
+      }
+    }
+  }
 
 }
 </script>
@@ -107,13 +122,11 @@ export default {
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-menu
-        transition="slide-y-transition"
-        bottom
-      >
-        <v-btn color="primary" dark slot="activator" class="green">
-          Entrar
-        </v-btn>
+        <v-btn color="primary" dark slot="activator" class="green"
+                v-if=!logged_user @click="open_login_social_fake($event)"
+                >
+                Entrar</v-btn>
+        <v-menu transition="slide-y-transition" bottom>
         <v-list class="green">
           <v-list-tile v-for="perfil in perfils" :key="perfil.title" @click="">
             <v-icon>{{ perfil.icon }}</v-icon>
@@ -128,6 +141,9 @@ export default {
         <slot></slot>
       </v-content>
     </main>
+
+    <LoginSocialFake ref="login_social_fake"></LoginSocialFake>
+
     <v-footer class="pa-3">
       <div>Rua Jonas Balbuena, 254, Jd. Katraca, Sp</div>
       <v-spacer></v-spacer>

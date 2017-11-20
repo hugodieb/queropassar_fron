@@ -1,8 +1,10 @@
 var logged_user = null;
 
+
 export default {
   list_professores: _mockasync(list_professores),
   whoami: _mockasync(whoami),
+  login: _mockasync(login),
 };
 
 function list_professores(){
@@ -15,6 +17,33 @@ function list_professores(){
 
   return professores;
 
+}
+
+function login(username, password) {
+  if (password){
+    if(username == 'Leonardo'){
+      logged_user = {
+        username: username,
+        first_name: 'Leonardo',
+        last_name: 'Lobato',
+        birth_date: '14/03/1985',
+        email: 'leo@leo.com',
+        cpf: '1234567890-1',
+        telefone: '(12)91234-0909'
+      };
+    }else {
+      logged_user = {
+        username: username,
+        first_name: 'Fulano',
+        last_name: 'da Silva',
+        birth_date: '',
+        email: '',
+        cpf: '',
+        telefone: ''
+      }
+    }
+  }
+  return logged_user
 }
 
 function whoami(){
