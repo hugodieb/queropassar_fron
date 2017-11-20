@@ -1,5 +1,8 @@
+var logged_user = null;
+
 export default {
-  list_professores: _mockasync(list_professores)
+  list_professores: _mockasync(list_professores),
+  whoami: _mockasync(whoami),
 };
 
 function list_professores(){
@@ -12,6 +15,12 @@ function list_professores(){
 
   return professores;
 
+}
+
+function whoami(){
+    return logged_user ? {authenticated: true,
+                          user: logged_user} :
+                          {authenticated: false};
 }
 
 function _mockasync(f){

@@ -15,7 +15,7 @@ module.exports = {
     }
   },
   router: {
-    middleware: [],
+    middleware: ['fwdcookies', 'auth'],
   },
   plugins: [
     '~plugins/vuetify.js',

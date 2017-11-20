@@ -42,7 +42,7 @@
             <v-container grid-list-md text-xs-center>
               <v-layout row wrap>
                 <v-spacer></v-spacer>
-                <v-flex d-flex xs12 sm6 md2 v-for="professor in professores">
+                <v-flex d-flex xs12 sm6 md2 v-for="professor in professores" :key="professor.id">
                   <v-card color="green" dark>
                     <v-card-text>
                       <v-flex xs12>
