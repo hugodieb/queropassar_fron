@@ -5,6 +5,7 @@ export default {
   list_professores: _mockasync(list_professores),
   whoami: _mockasync(whoami),
   login: _mockasync(login),
+  logout: _mockasync(logout),
 };
 
 function list_professores(){
@@ -44,6 +45,10 @@ function login(username, password) {
     }
   }
   return logged_user
+}
+
+function logout() {
+  this.logged_user = null;
 }
 
 function whoami(){

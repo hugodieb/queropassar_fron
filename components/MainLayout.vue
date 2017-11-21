@@ -1,4 +1,5 @@
 <script>
+import AppApi from '~apijs'
 import Perfil from '~/components/Perfil'
 import LoginSocialFake from '~/components/LoginSocialFake'
 import Vuex from 'vuex'
@@ -36,7 +37,12 @@ export default {
       if(evt){
         evt.stopPropagation();
       }
-    }
+    },
+    logoff() {
+      AppApi.logout().then(()=>{
+        this.$store.commit('SET_LOGGED_USER', null);
+      });
+    },
   }
 
 }
@@ -123,17 +129,22 @@ export default {
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn color="primary" dark slot="activator" class="green"
-                v-if=!logged_user @click="open_login_social_fake($event)"
+                v-if="!logged_user" @click="open_login_social_fake($event)"
                 >
                 Entrar</v-btn>
-        <v-menu transition="slide-y-transition" bottom>
-        <v-list class="green">
-          <v-list-tile v-for="perfil in perfils" :key="perfil.title" @click="">
-            <v-icon>{{ perfil.icon }}</v-icon>
-            <v-list-tile-title>{{ perfil.text }}</v-list-tile-title>
-          </v-list-tile>
-        </v-list>
-      </v-menu>
+        <v-menu v-if="logged_user" transition="slide-y-transition" bottom>
+          <v-btn color="primary" dark slot="activator" class="green">
+            {{logged_user.first_name}}
+          </v-btn>
+          <v-list>
+            <v-list-tile @click="logoff()">
+              <v-list-tile-action>
+                <v-icon>exit_to_app</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-title v-text="'Sair'"></v-list-tile-title>
+            </v-list-tile>
+          </v-list>
+        </v-menu>
       </v-toolbar-items>
     </v-toolbar>
     <main>
