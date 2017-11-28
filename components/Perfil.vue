@@ -2,9 +2,11 @@
 import Vuex from 'vuex';
 
 export default {
-data: () => ({
-
-  })
+  data () {
+    return {
+      valid: true,
+    };
+  },
 }
 
 </script>
@@ -13,10 +15,12 @@ data: () => ({
 <main>
     <v-layout justify-center>
         <v-flex xs12 sm10 md8 lg6>
-          <v-toolbar color="green" dark>
-            <v-toolbar-title>Editar meu Perfil</v-toolbar-title>
+          <v-toolbar color="green">
+            <v-toolbar-title class="white--text"
+                              >Editar meu perfil
+                              </v-toolbar-title>            
           </v-toolbar>
-          <v-card ref="form">
+          <v-card ref="form" lazy-validation>
             <v-card-text>
               <v-text-field label="Nome" placeholder="Carlos"
                             required ref="name">
@@ -37,10 +41,17 @@ data: () => ({
                             </v-text-field>
             </v-card-text>
             <v-card-actions>
-                 <v-btn block round  color="green" dark>Salvar</v-btn>
+                 <v-btn block round  color="green" :dark="valid"
+                        :disabled="!valid">Salvar</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
       </v-layout>
 </main>
 </template>
+
+<style scoped>
+.blue-grey.darken-3 {
+  background-color: #4caf50;
+}
+</style>
