@@ -1,7 +1,3 @@
-<template>
-  <Home :professores=professores></Home>
-</template>
-
 <script>
 import AppApi from '~apijs'
 import Home from '~/components/home.vue'
@@ -20,6 +16,10 @@ export default {
   }
 }
 </script>
+
+<template>
+  <Home :professores=professores></Home>
+</template>
 
 <style>
 

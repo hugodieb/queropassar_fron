@@ -123,7 +123,7 @@ export default {
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-spacer></v-spacer>
       <v-toolbar-title><router-link :to="{ name: 'index'}">
-                          <img id="logomain" src="/images/logo3.png"/>
+                          <img id="logomain" src="/images/logo3.png" class="toolbar-title" />
                         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
@@ -137,6 +137,12 @@ export default {
             {{logged_user.first_name}}
           </v-btn>
           <v-list>
+            <v-list-tile :router="true" :to="{name: 'perfil'}">
+              <v-list-tile-action>
+                <v-icon>exit_to_app</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-title v-text="'Editar Perfil'"></v-list-tile-title>
+            </v-list-tile>
             <v-list-tile @click="logoff()">
               <v-list-tile-action>
                 <v-icon>exit_to_app</v-icon>
@@ -155,13 +161,13 @@ export default {
 
     <LoginSocialFake ref="login_social_fake"></LoginSocialFake>
 
-    <v-footer class="pa-3">
+    <!--<v-footer class="pa-3">
       <div>Rua Jonas Balbuena, 254, Jd. Katraca, Sp</div>
       <v-spacer></v-spacer>
       <div>Tel (12)3999-0000 / (12)9999-0987</div>
       <v-spacer></v-spacer>
       <div>Tamandaré © {{ new Date().getFullYear() }}</div>
-    </v-footer>
+    </v-footer>-->
   </v-app>
 </template>
 

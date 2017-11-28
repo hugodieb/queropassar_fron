@@ -1,4 +1,5 @@
-{ "name": "with-vuetify",
+{
+  "name": "with-vuetify",
   "dependencies": {
     "axios": "^0.16.1",
     "nuxt": "^1.0.0-rc11",
