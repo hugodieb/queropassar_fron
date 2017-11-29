@@ -33,7 +33,6 @@ export default {
 </script>
 
 <template>
-  <v-layout row justify-center>
     <v-dialog v-model="visible" max-width="450">
       <v-card justify-center>
         <v-card-media src="/images/social.jpg" height="400px"></v-card-media>
@@ -49,7 +48,6 @@ export default {
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </v-layout>
 </template>
 
 <style scoped>

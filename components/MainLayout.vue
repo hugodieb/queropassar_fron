@@ -41,9 +41,13 @@ export default {
       }
     },
     logoff() {
-      AppApi.logout().then(()=>{
-        this.$store.commit('SET_LOGGED_USER', null);
-        this.$router.push({name: 'index'});
+      AppApi.logout().then((result)=>{
+        if(!result.data){
+          this.$store.commit('SET_LOGGED_USER', null);
+          this.$router.push({name: 'index'});
+        }
+
+
       });
     },
   }

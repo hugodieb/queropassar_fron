@@ -48,7 +48,7 @@ function login(username, password) {
 }
 
 function logout() {
-  this.logged_user = null;
+  return logged_user = null;
 }
 
 function whoami(){
