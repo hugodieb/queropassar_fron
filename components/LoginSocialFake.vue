@@ -44,7 +44,7 @@ export default {
             <v-btn round color="error" dark @click="loginFake('Leonardo')">Google</v-btn>
           </div>
           <div class="text-xs-center">
-            <v-btn round color="primary" dark>FaceBook</v-btn>
+            <v-btn round color="primary" dark @click="loginFake('Ze')">FaceBook</v-btn>
           </div>
         </v-card-actions>
       </v-card>
