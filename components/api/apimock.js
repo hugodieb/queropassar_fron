@@ -28,7 +28,7 @@ function login(username, password) {
         first_name: 'Leonardo',
         last_name: 'Lobato',
         birth_date: '14031985',
-        cpf: '1234567890-1',
+        cpf: '82567053298',
         email: 'leo@leo.com',
         cell_phone: '12912340909'
       };

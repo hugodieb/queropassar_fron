@@ -13,6 +13,10 @@ export default {
         email: '',
         cell_phone: '',
       },
+      birthMask: '##/##/####',
+      cpfMask: '#########-##',
+      cellMask: '(##)#####-####',
+
       firstNameRules: [
         (v) => !!v || 'Nome não pode ficar em branco',
         (v) => v && v.length >= 2 || ''
@@ -45,6 +49,16 @@ export default {
     var logged_user = this.$store.getters.logged_user;
     this.user = Object.assign({}, logged_user);
   },
+  methods: {
+    savePerfil(){
+      if(this.$refs.form.validate()){
+        var userCurrent = {
+          firtsName: this.user.first_name
+        }
+
+      }
+    }
+  }
 }
 
 </script>
@@ -62,35 +76,51 @@ export default {
             <v-card-text>
               <v-form v-model="valid" ref="form" lazy-validation>
                   <v-text-field label="Nome" placeholder="Carlos"
-                                v-model="user.first_name"
                                 required
+                                v-model="user.first_name"
                                 :rules="firstNameRules">
                                 </v-text-field>
                   <v-text-field label="Sobrenome" placeholder="da Silva Neto"
-                                v-model="user.last_name"
                                 required
+                                v-model="user.last_name"
                                 :rules="lastNameRules">
                                 </v-text-field>
-                  <v-text-field label="Data Nasimento" placeholder="dd/mm/YYYY"
-                                v-model="user.birth_date"
+                  <v-text-field label="Data Nasimento"
+                                single-line
+                                prepend-icon="date_range"
                                 required
-                                :rules="birthDateRules">
+                                v-model="user.birth_date"
+                                :rules="birthDateRules"
+                                :mask="birthMask">
                                 </v-text-field>
-                  <v-text-field label="Cpf" placeholder="11 digitos"
+                  <v-text-field label="Cpf"
+                                single-line
+                                prepend-icon="fingerprint"
+                                required
                                 v-model="user.cpf"
-                                :rules="cpfRules">
+                                :rules="cpfRules"
+                                :mask="cpfMask">
                                 </v-text-field>
-                  <v-text-field label="Email" placeholder="exemplo@net.com"
+                  <v-text-field label="Email"
+                                single-line
+                                prepend-icon="mail"
+                                required
                                 v-model="user.email"
                                 :rules="emailRules">
                                 </v-text-field>
-                  <v-text-field label="Telefone" placeholder="(xx)xxxxx-xxxx"
+                  <v-text-field label="Telefone"
+                                single-line
+                                prepend-icon="phone"
+                                required
+                                type="tel"
                                 v-model="user.cell_phone"
-                                :rules="cellRules">
+                                :rules="cellRules"
+                                :mask="cellMask">
                                 </v-text-field>
                 </v-form>
                 <v-btn block round  color="green"
                              :disabled="!valid"
+                             @click="savePerfil()"
                              >Salvar
                </v-btn>
               </v-card-text>
