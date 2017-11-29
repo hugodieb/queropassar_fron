@@ -10,22 +10,24 @@ export default {
       'logged_user'
     ])
   ),
-  data: () => ({
-    dialog: false,
-    drawer: false,
-    items: [
-      { icon: 'contacts', text: 'Contatos' },
-      { icon: 'chrome_reader_mode', text: 'Disciplinas' },
-      { icon: 'new_releases', text: 'Próximos Concursos' },
-      { icon: 'assignment', text: 'Marcações do Aluno' },
-      { icon: 'movie', text: 'Vídeo Aulas' },
-      { icon: 'feedback', text: 'Dúvidas do Aluno' },
-      { icon: 'notifications', text: 'Notificações' },
-    ],
-    perfils: [
-      {icon: 'person_outline', text: 'Aluno'},
-    ],
-  }),
+  data() {
+    return {
+      dialog: false,
+      drawer: false,
+      items: [
+        { icon: 'contacts', text: 'Contatos' },
+        { icon: 'chrome_reader_mode', text: 'Disciplinas' },
+        { icon: 'new_releases', text: 'Próximos Concursos' },
+        { icon: 'assignment', text: 'Marcações do Aluno' },
+        { icon: 'movie', text: 'Vídeo Aulas' },
+        { icon: 'feedback', text: 'Dúvidas do Aluno' },
+        { icon: 'notifications', text: 'Notificações' },
+      ],
+      perfils: [
+        {icon: 'person_outline', text: 'Aluno'},
+      ],
+    }
+  },
   props: {
     source: String
   },
@@ -51,6 +53,8 @@ export default {
 <template>
   <v-app>
     <v-navigation-drawer
+      temporary
+      absolute
       persistent
       clipped
       app
