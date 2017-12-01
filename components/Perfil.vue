@@ -1,5 +1,7 @@
 <script>
+import axios from 'axios'
 import Vuex from 'vuex';
+import AppApi from '~apijs'
 import ValidateCPF from '~/components/isValidateCpf.js'
 
 export default {
@@ -16,6 +18,7 @@ export default {
       birthMask: '##/##/####',
       cpfMask: '#########-##',
       cellMask: '(##)#####-####',
+      saving: false,
 
       firstNameRules: [
         (v) => !!v || 'Nome não pode ficar em branco',
@@ -53,12 +56,25 @@ export default {
     savePerfil(){
       if(this.$refs.form.validate()){
         var userCurrent = {
-          firtsName: this.user.first_name
-        }
+          firtsName: this.user.first_name,
+          lastName: this.user.last_name,
+          birthDate: this.user.birth_date,
+          cpf: this.user.cpf,
+          email: this.user.email,
+          cellPhone: this.user.cell_phone
+        };
+        this.saving = true;
+        AppApi.savePerfilUserCurrent(userCurrent).then((result)=>{
+          var user = result.data;
+          if(user){
+            this.$store.commit('SET_LOGGED_USER', user);
+          }
+          this.saving = false;
 
+        });
       }
     }
-  }
+  },
 }
 
 </script>
@@ -114,12 +130,13 @@ export default {
                                 required
                                 type="tel"
                                 v-model="user.cell_phone"
-                                :rules="cellRules"
-                                :mask="cellMask">
+                                :mask="cellMask"
+                                :rules="cellRules">
                                 </v-text-field>
                 </v-form>
                 <v-btn block round  color="green"
                              :disabled="!valid"
+                             :loading="saving"
                              @click="savePerfil()"
                              >Salvar
                </v-btn>
@@ -133,5 +150,10 @@ export default {
 <style scoped>
 .blue-grey.darken-3 {
   background-color: #4caf50;
+}
+#meu {
+
+
+
 }
 </style>

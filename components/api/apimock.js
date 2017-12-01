@@ -6,6 +6,8 @@ export default {
   whoami: _mockasync(whoami),
   login: _mockasync(login),
   logout: _mockasync(logout),
+  savePerfilUserCurrent: _mockasync(savePerfilUserCurrent),
+
 };
 
 function list_professores(){
@@ -45,6 +47,11 @@ function login(username, password) {
     }
   }
   return logged_user
+}
+
+function savePerfilUserCurrent(userPerfil){
+  Object.assign(logged_user, userPerfil);
+  return logged_user;
 }
 
 function logout() {

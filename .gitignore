@@ -12,3 +12,4 @@ dist
 
 .editorconfig
 .eslintrc.jss
+package-lock.json
