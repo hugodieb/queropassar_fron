@@ -19,6 +19,7 @@ export default {
         visible: false,
         text: '',
         timeout: 1000,
+        icon: '',
       },
       items: [
         { icon: 'contacts', text: 'Contatos' },
@@ -68,6 +69,7 @@ export default {
       this.toasts_model.text = data.text;
       this.toasts_model.timeout = data.timeout;
       this.toasts_model.visible = true;
+      this.toasts_model.icon = data.icon
     },
   }
 }
@@ -187,9 +189,13 @@ export default {
     </main>
 
     <LoginSocialFake ref="login_social_fake"></LoginSocialFake>
-    <v-snackbar bottom right v-model="toasts_model.visible"
+    <v-snackbar color="success" bottom right v-model="toasts_model.visible"
                        :timeout="toasts_model.timeout"
-                       >{{toasts_model.text}}
+                       >
+                         <v-avatar>
+                          <v-icon>{{toasts_model.icon}}</v-icon>
+                         </v-avatar>
+                         {{toasts_model.text}}
                        </v-snackbar>
 
     <!--<v-footer class="pa-3">

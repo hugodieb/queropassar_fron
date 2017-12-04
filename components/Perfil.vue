@@ -71,7 +71,7 @@ export default {
             this.$store.commit('SET_LOGGED_USER', user);
           }
           this.saving = false;
-          Toasts.show('Perfil salvo com sucesso!!', {timeout: 3000});
+          Toasts.show('Perfil salvo com sucesso!!', {timeout: 3000, icon: "check_circle"});
         });
       }
     }
