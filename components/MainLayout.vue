@@ -1,5 +1,6 @@
 <script>
 import AppApi from '~apijs'
+import Events from '~/components/Events.js'
 import Perfil from '~/components/Perfil'
 import LoginSocialFake from '~/components/LoginSocialFake'
 import Vuex from 'vuex'
@@ -14,6 +15,11 @@ export default {
     return {
       dialog: false,
       drawer: false,
+      toasts_model: {
+        visible: false,
+        text: '',
+        timeout: 1000,
+      },
       items: [
         { icon: 'contacts', text: 'Contatos' },
         { icon: 'chrome_reader_mode', text: 'Disciplinas' },
@@ -27,6 +33,14 @@ export default {
         {icon: 'person_outline', text: 'Aluno'},
       ],
     }
+  },
+  mounted(){
+    Events.subscribe('toast', (data)=>{
+      this.show_toast(data);
+    });
+    Events.subscribe('needlogin', (data)=>{
+      this.open_login_dialog();
+    });
   },
   props: {
     source: String
@@ -50,8 +64,12 @@ export default {
 
       });
     },
+    show_toast(data){
+      this.toasts_model.text = data.text;
+      this.toasts_model.timeout = data.timeout;
+      this.toasts_model.visible = true;
+    },
   }
-
 }
 </script>
 
@@ -169,6 +187,10 @@ export default {
     </main>
 
     <LoginSocialFake ref="login_social_fake"></LoginSocialFake>
+    <v-snackbar bottom right v-model="toasts_model.visible"
+                       :timeout="toasts_model.timeout"
+                       >{{toasts_model.text}}
+                       </v-snackbar>
 
     <!--<v-footer class="pa-3">
       <div>Rua Jonas Balbuena, 254, Jd. Katraca, Sp</div>

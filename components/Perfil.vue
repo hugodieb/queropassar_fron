@@ -2,6 +2,7 @@
 import axios from 'axios'
 import Vuex from 'vuex';
 import AppApi from '~apijs'
+import Toasts from '~/components/Toasts.js'
 import ValidateCPF from '~/components/isValidateCpf.js'
 
 export default {
@@ -70,7 +71,7 @@ export default {
             this.$store.commit('SET_LOGGED_USER', user);
           }
           this.saving = false;
-
+          Toasts.show('Perfil salvo com sucesso!!', {timeout: 3000});
         });
       }
     }
