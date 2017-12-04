@@ -125,15 +125,14 @@ export default {
                                 v-model="user.email"
                                 :rules="emailRules">
                                 </v-text-field>
-                  <v-text-field label="Telefone"
-                                single-line
-                                prepend-icon="phone"
-                                required
-                                type="tel"
-                                v-model="user.cell_phone"
-                                :mask="cellMask"
-                                :rules="cellRules">
-                                </v-text-field>
+                  <v-text-field label="Celular"
+                                 single-line
+                                 prepend-icon="phone"
+                                 type="tel"
+                                 :mask="cellMask"
+                                 required
+                                 v-model="user.cell_phone"
+                                 :rules="cellRules"/>
                 </v-form>
                 <v-btn block round  color="green"
                              :disabled="!valid"
