@@ -1,12 +1,11 @@
 <script>
 import AppApi from '~apijs'
 import Home from '~/components/home.vue'
-import Professores from '~/components/Professores.js'
 export default {
   components: {Home},
   asyncData() {
-    return AppApi.list_professores().then((response) => {
-      return {professores: response.data}
+    return AppApi.list_courses().then((response) => {
+      return {courses: response.data}
     });
   },
   data(){
@@ -18,7 +17,7 @@ export default {
 </script>
 
 <template>
-  <Home :professores=professores></Home>
+  <Home :courses="courses"></Home>
 </template>
 
 <style>
