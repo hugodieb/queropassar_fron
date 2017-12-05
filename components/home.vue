@@ -27,7 +27,19 @@
               <v-layout row wrap>
                 <v-flex d-flex xs12 sm6 md3 v-for="academia in academias" :key="academia">
                   <v-card color="green" dark>
+                    <v-layout row>
+                      <v-flex xs6>
+                        <v-card-media
+                          :src="getIconAcademy(academia.avatar)"
+                          height="125px"
+                          contain
+                        ></v-card-media>
+                      </v-flex>
+                      <v-flex xs1>                        
                     <v-card-title primary class="title">{{academia.titulo}}</v-card-title>
+                      </v-flex>
+                    </v-layout>
+                    
                     <v-card-text
                       v-text="academia.descricao">
                     </v-card-text>
@@ -74,29 +86,41 @@ export default {
         {titulo: "EPCAR", descricao: "A Epcar possui o Curso Preparatório de Cadetes do Ar (CPCAr),\
                      que tem como uma de suas finalidades a preparação de alunos,\
                      sob o regime de internato, para ingressar no Curso de Formação de Oficiais Aviadores\
-                     (CFOAV) da Academia da Força Aérea (AFA)."
+                     (CFOAV) da Academia da Força Aérea (AFA).",
+                     avatar: 'epcar.png'
         },
         {titulo: "EEAR/AFA", descricao: "A Academia da Força Aérea (AFA), situada na cidade de Pirassununga-SP,\
                             é um estabelecimento de ensino superior, que integra o Sistema de Formação e\
                             Aperfeiçoamento do Comando da Aeronáutica. Sua finalidade é formar Oficiais Aviadores,\
                             Intendentes e de Infantaria da Força Aérea Brasileira, incentivando e aprimorando em cada\
-                            Cadete os atributos intelectuais, morais e físicos, essenciais ao Oficial da Aeronáutica."
+                            Cadete os atributos intelectuais, morais e físicos, essenciais ao Oficial da Aeronáutica.",
+                            avatar: 'eear.png'
+
         },
         {titulo: "COLÉGIO NAVAL", descricao: "Situado num recanto de invejável beleza do litoral do Estado do Rio de Janeiro,\
                                  na Enseada Batista das Neves, cidade de Angra dos Reis, e localizado a poucas horas\
                                  dos dois maiores centros urbanos brasileiros – Rio de Janeiro e São Paulo – encontra-se\
                                  o Colégio Naval, incrustado entre montanhas e o mar. Preparar seus alunos para a Escola Naval,\
-                                 onde são formados os Oficiais da Marinha, despertando-lhe o interesse pela carreira naval é a sua finalidade. "
+                                 onde são formados os Oficiais da Marinha, despertando-lhe o interesse pela carreira naval é a sua finalidade. ",
+                                 avatar: 'colegionaval.png'
         },
         {titulo: "APMBB", descricao: "A Academia de Polícia Militar do Barro Branco tem como objetivo formar,\
                                   por meio do Curso de Formação de Oficiais (CFO), com embasamento teórico e prático,\
                                   o profissional, cujo posto inicial é o de aspirante a oficial, a fim de que o mesmo\
                                   esteja capacitado à comandar, instruir, capacitar e especializar os membros das\
-                                  fileiras da Polícia Militar do Estado de São Paulo."
+                                  fileiras da Polícia Militar do Estado de São Paulo.",
+                                  avatar: 'barrobranco.jpg'
         },
       ],
     }
   },
+  methods: {
+    getIconAcademy (icon) {
+      debugger
+      return require('@/static/images/' + icon)      
+    },
+  },
+
 }
 </script>
 
@@ -117,7 +141,7 @@ export default {
 .hero-content h2, h3{
   color: #393c16;
 }
-img {
+img {    
     width: 8em;
     height: 8em;
     border-radius: 50%;
