@@ -10,16 +10,8 @@
         </v-container>
       </div>
     </div>
-    <v-container grid-list-md text-xs-center>
-      <h4 class="mb-4 mt-5">Metodologia no Tamandaré</h4>
-      <p>Os alunos estudam a teoria e praticam muitos exercícios.<br>
-        Os professores dão suporte aos alunos na solução dos exercícios.
-        São feitas também os simulados que são<br>
-        questões que caem nas provas reais dos colégios militares.
-        Os alunos estão sempre praticando o que aprendem na teoria.<br>
-        Quando o aluno tiver dúvida só postar na guia dúvida do aluno que<br/>
-        um de nossos profesores irá ajudá-lo.<br>
-      </p>
+    <v-container grid-list-md text-xs-center>      
+      <h4 class="mb-4 mt-5">Concursos em destaque</h4>
       <v-layout row wrap>
         <v-flex xs12>
           <v-card dark color="white">
@@ -32,6 +24,15 @@
             </v-container>
           </v-card>
           <v-divider></v-divider><br /><br />
+          <h4 class="mb-4 mt-5">Metodologia no Tamandaré</h4>
+          <p>Os alunos estudam a teoria e praticam muitos exercícios.<br>
+            Os professores dão suporte aos alunos na solução dos exercícios.
+            São feitas também os simulados que são<br>
+            questões que caem nas provas reais dos colégios militares.
+            Os alunos estão sempre praticando o que aprendem na teoria.<br>
+            Quando o aluno tiver dúvida só postar na guia dúvida do aluno que<br/>
+            um de nossos profesores irá ajudá-lo.<br>
+          </p>
           <h4 class="mb-4 mt-5">Nossos Professores</h4>
           <v-card dark color="white">
             <v-container grid-list-md text-xs-center>
