@@ -11,7 +11,7 @@
       </div>
     </div>
     <v-container grid-list-md text-xs-center>      
-      <h4 class="mb-4 mt-5">Concursos em destaque</h4>
+      <h4 color="orange" class="mb-4 mt-5">CONCURSOS EM DESTAQUE</h4>
       <v-layout row wrap>
         <v-flex xs12>
           <v-card dark color="white">
@@ -22,37 +22,24 @@
                 </v-flex>
               </v-layout>
             </v-container>
-          </v-card>
+          </v-card>          
           <v-divider></v-divider><br /><br />
-          <h4 class="mb-4 mt-5">Metodologia no Tamandaré</h4>
-          <p>Os alunos estudam a teoria e praticam muitos exercícios.<br>
-            Os professores dão suporte aos alunos na solução dos exercícios.
-            São feitas também os simulados que são<br>
-            questões que caem nas provas reais dos colégios militares.
-            Os alunos estão sempre praticando o que aprendem na teoria.<br>
-            Quando o aluno tiver dúvida só postar na guia dúvida do aluno que<br/>
-            um de nossos profesores irá ajudá-lo.<br>
-          </p>
-          <h4 class="mb-4 mt-5">Nossos Professores</h4>
+          <div class="blue-grey darken-3 pa-3 white--text">
+            <v-layout row wrap>
+              <v-flex xs12>
+                <div class="title">DEMONSTRAÇÃO DE AULAS</div>
+              </v-flex>
+            </v-layout>
+          </div>          
           <v-card dark color="white">
-            <v-container grid-list-md text-xs-center>
+            <v-container fluid grid-list-md>
               <v-layout row wrap>
-                <v-spacer></v-spacer>
-                <v-flex d-flex xs12 sm6 md2 v-for="professor in professores" :key="professor.id">
-                  <v-card color="green" dark>
-                    <v-card-text>
-                      <v-flex xs12>
-                        <div>
-                          <img :src="professor.avatar" alt="">
-                        </div>
-                      </v-flex>
-                      <v-card-text class="px-0">{{professor.nome}}<p>{{professor.disciplina}}</p></v-card-text>
-                    </v-card-text>
-                  </v-card>
-                </v-flex><v-spacer></v-spacer>
-               </v-layout>
-             </v-container>
-          </v-card>
+                <v-flex d-flex xs12 sm6 md3 v-for="data in freevideos" :key="data">
+                  <Videos :data="data"></Videos>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-card>          
         </v-flex>
       </v-layout>
     </v-container>
@@ -63,16 +50,31 @@
 import AppApi from '~apijs'
 import Vuex from 'vuex'
 import Courses from '~/components/Courses.vue'
+import Videos from '~/components/Videos.vue'
 
 export default {
-  components: {Courses},
-  props: ['courses'],
+  components: {Courses, Videos},
+  props: ['courses', 'data'],
   data () {
     return {
-      
-    }
-  },  
+      freevideos: [
+        {demo: "https://www.youtube.com/embed/XySESQb3TWE",
+         title: "Matematica - Polinômios", professor: "Jairo Luis da Silva"
+        },
+        {demo: "https://www.youtube.com/embed/MBRmFHUi-ak",
+         title: "Fisica - Cinematica", professor: "Rodrigo Buchfink"
+        },
+        {demo: "https://www.youtube.com/embed/YZpQqZ14GI8",
+         title: "Português - Ortografia", professor: "Aline Ferraz"
+        },
+        {demo: "https://www.youtube.com/embed/NxTVJwxsdU8",
+         title: "Geografia - Vegetação", professor: "Giordano Bombardelli"
+        },
 
+      ]
+    }
+  },
+  
 }
 </script>
 

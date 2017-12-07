@@ -31,12 +31,9 @@
                 <v-list-tile-title >{{course.vagas}} vagas</v-list-tile-title>
               </v-list-tile-content>              
             </v-list-tile>
-            <v-list-tile avatar >
-              <v-list-tile-action>
-                <v-icon>attach_money</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content v-if="course.salario">
-                <v-list-tile-title >{{course.salario}}</v-list-tile-title>
+            <v-list-tile avatar >              
+              <v-list-tile-content>
+                <v-list-tile-title >Mais informações<v-icon>get_app</v-icon></v-list-tile-title>
               </v-list-tile-content>              
             </v-list-tile>
           </v-list>
@@ -55,8 +52,7 @@ export default {
 		};
 	},
 	methods: {
-    getIconAcademy (icon) {
-      debugger
+    getIconAcademy (icon) {      
       return require('@/static/images/' + icon)      
     },
   },

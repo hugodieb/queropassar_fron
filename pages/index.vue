@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-  <Home :courses="courses"></Home>
+  <Home :courses="courses" :videos="videos"></Home>
 </template>
 
 <style>

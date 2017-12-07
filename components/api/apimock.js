@@ -4,6 +4,7 @@ var logged_user = null;
 export default {
   list_professores: _mockasync(list_professores),
   list_courses: _mockasync(list_courses),
+  list_videos: _mockasync(list_videos),
   whoami: _mockasync(whoami),
   login: _mockasync(login),
   logout: _mockasync(logout),
@@ -43,6 +44,27 @@ function list_courses(){
 
     return academias;
 
+}
+
+function list_videos(){
+  var academias = [
+            {titulo: "EPCAR", descricao: "Colégio militar Cadetes do Ar",
+             avatar: 'epcar.png', date: "04/01/2018", vagas: 200, salario: ""
+            },
+            {titulo: "EEAR", descricao: "Escola de Especialistas da Aeronática",
+             avatar: 'eear.png', date: "02/05/2018", vagas: 180, salario: ""
+
+            },
+            {titulo: "COLÉGIO NAVAL", descricao: "Colégio militar da Marinha",
+             avatar: 'colegionaval.png', date: "sem data", vagas: 80, salario: ""
+            },
+            {titulo: "APMBB", descricao: "Academia de Polícia Militar SP",
+             avatar: 'barrobranco.jpg', date: "04/01/2018", vagas: 250, salario: "R$ 5768,90"
+            },
+        ];
+    var academias = _clone(academias)
+
+    return academias;
 }
 
 function login(username, password) {
