@@ -72,22 +72,22 @@ function login(username, password) {
     if(username == 'Leonardo'){
       logged_user = {
         username: username,
-        first_name: 'Leonardo',
-        last_name: 'Lobato',
-        birth_date: '14031985',
+        firtsName: 'Leonardo',
+        lastName: 'Lobato',
+        birthDate: '14031985',
         cpf: '82567053298',
         email: 'leo@leo.com',
-        cell_phone: '12912340909'
+        cellPhone: '12912340909'
       };
     }else {
       logged_user = {
         username: username,
-        first_name: 'Fulano',
-        last_name: 'da Silva',
-        birth_date: '',
-        email: '',
+        firtsName: 'Fulano',
+        lastName: 'da Silva',
+        birthDate: '',
         cpf: '',
-        telefone: ''
+        email: '',
+        cellPhone: ''
       }
     }
   }

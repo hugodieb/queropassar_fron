@@ -34,8 +34,8 @@
           <v-card dark color="white">
             <v-container fluid grid-list-md>
               <v-layout row wrap>
-                <v-flex d-flex xs12 sm6 md3 v-for="data in freevideos" :key="data">
-                  <Videos :data="data"></Videos>
+                <v-flex d-flex xs12 sm6 md3 v-for="demo in freevideos" :key="demo.id">
+                  <Videos :demo="demo"></Videos>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -54,27 +54,26 @@ import Videos from '~/components/Videos.vue'
 
 export default {
   components: {Courses, Videos},
-  props: ['courses', 'data'],
+  props: ['courses'],
   data () {
     return {
       freevideos: [
-        {demo: "https://www.youtube.com/embed/XySESQb3TWE",
+        {demoVideo: "https://www.youtube.com/embed/XySESQb3TWE",
          title: "Matematica - Polinômios", professor: "Jairo Luis da Silva"
         },
-        {demo: "https://www.youtube.com/embed/MBRmFHUi-ak",
+        {demoVideo: "https://www.youtube.com/embed/MBRmFHUi-ak",
          title: "Fisica - Cinematica", professor: "Rodrigo Buchfink"
         },
-        {demo: "https://www.youtube.com/embed/YZpQqZ14GI8",
+        {demoVideo: "https://www.youtube.com/embed/YZpQqZ14GI8",
          title: "Português - Ortografia", professor: "Aline Ferraz"
         },
-        {demo: "https://www.youtube.com/embed/NxTVJwxsdU8",
+        {demoVideo: "https://www.youtube.com/embed/NxTVJwxsdU8",
          title: "Geografia - Vegetação", professor: "Giordano Bombardelli"
         },
 
       ]
-    }
-  },
-  
+    };
+  },  
 }
 </script>
 

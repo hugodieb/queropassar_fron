@@ -163,7 +163,7 @@ export default {
                 Entrar</v-btn>
         <v-menu v-if="logged_user" transition="slide-y-transition" bottom>
           <v-btn color="primary" dark slot="activator" class="green">
-            {{logged_user.first_name}}
+            {{logged_user.firtsName}}
           </v-btn>
           <v-list>
             <v-list-tile :router="true" :to="{name: 'perfil'}">

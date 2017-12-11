@@ -1,5 +1,5 @@
 <template>	
-      <v-card id="cardinfo" dark :hover="!disabled">
+      <v-card id="cardinfo" dark>
         <v-layout row>
           <v-flex xs4>
             <v-card-media
@@ -25,7 +25,7 @@
             </v-list-tile>
             <v-list-tile avatar >
               <v-list-tile-action>
-                <v-icon>person</v-icon>
+                <v-icon>group</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title >{{course.vagas}} vagas</v-list-tile-title>

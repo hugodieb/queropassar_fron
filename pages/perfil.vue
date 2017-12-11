@@ -8,8 +8,8 @@ export default {
     }
   },
   components: {Perfil},
-  data: {
-
+  data() {
+    return{};
   },
 }
 </script>

@@ -9,7 +9,7 @@ export default {
     }
   },
   methods: {
-    loginFake(username) {
+    loginFake(username) {      
       AppApi.login(username, 'fakepassword').then((result) => {
         var user = result.data;
         if(user){

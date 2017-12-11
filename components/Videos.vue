@@ -1,8 +1,8 @@
 <template>  
-      <v-card id="cardinfo" dark :hover="!disabled">
+      <v-card id="cardinfo" dark>
         <v-layout row>
           <v-flex xs12>
-            <v-card-media contain><iframe height="300" :src="data.demo" frameborder="0" allowfullscreen></iframe></v-card-media>
+            <v-card-media contain><iframe height="300" :src="demo.demoVideo" frameborder="0" allowfullscreen></iframe></v-card-media>
           </v-flex>                    
         </v-layout>       
         <v-card>          
@@ -12,7 +12,7 @@
                 <v-icon >subtitles</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title primary>{{data.title}}</v-list-tile-title>
+                <v-list-tile-title primary>{{demo.title}}</v-list-tile-title>
               </v-list-tile-content>              
             </v-list-tile>
             <v-list-tile avatar >
@@ -20,7 +20,7 @@
                 <v-icon>school</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
-                <v-list-tile-title >{{data.professor}}</v-list-tile-title>
+                <v-list-tile-title >{{demo.professor}}</v-list-tile-title>
               </v-list-tile-content>              
             </v-list-tile>            
           </v-list>
@@ -33,9 +33,9 @@ import AppApi from '~apijs'
 import Vuex from 'vuex'
 
 export default {
-  props: ['data'],
+  props: ['demo'],
   data() {
-    
+    return{};
   },  
 }
 

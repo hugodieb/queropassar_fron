@@ -4,14 +4,15 @@ import Vuex from 'vuex';
 import AppApi from '~apijs'
 import Toasts from '~/components/Toasts.js'
 import ValidateCPF from '~/components/isValidateCpf.js'
+import PerfilHelper from '~/components/PerfilHelper.js'
 
 export default {
   data () {
     return {
       user : {
-        first_name: '',
-        last_name: '',
-        birth_date: '',
+        firtsName: '',
+        lastName: '',
+        birthDate: '',
         cpf: '',
         email: '',
         cell_phone: '',
@@ -57,12 +58,12 @@ export default {
     savePerfil(){
       if(this.$refs.form.validate()){
         var userCurrent = {
-          firtsName: this.user.first_name,
-          lastName: this.user.last_name,
-          birthDate: this.user.birth_date,
+          firtsName: this.user.firtsName,
+          lastName: this.user.lastName,
+          birthDate: this.user.birthDate,
           cpf: this.user.cpf,
           email: this.user.email,
-          cellPhone: this.user.cell_phone
+          cellPhone: this.user.cellPhone
         };
         this.saving = true;
         AppApi.savePerfilUserCurrent(userCurrent).then((result)=>{
@@ -71,7 +72,11 @@ export default {
             this.$store.commit('SET_LOGGED_USER', user);
           }
           this.saving = false;
-          Toasts.show('Perfil salvo com sucesso!!', {timeout: 3000, icon: "check_circle"});
+          Toasts.show('Perfil salvo com sucesso!!', {timeout: 1000, icon: "check_circle"});
+          debugger
+          if(PerfilHelper.is_profile_complete(this.$store)){
+            setTimeout( () => this.$router.push({name: 'index'}), 1000);        
+          }
         });
       }
     }
@@ -94,19 +99,19 @@ export default {
               <v-form v-model="valid" ref="form" lazy-validation>
                   <v-text-field label="Nome" placeholder="Carlos"
                                 required
-                                v-model="user.first_name"
+                                v-model="user.firtsName"
                                 :rules="firstNameRules">
                                 </v-text-field>
                   <v-text-field label="Sobrenome" placeholder="da Silva Neto"
                                 required
-                                v-model="user.last_name"
+                                v-model="user.lastName"
                                 :rules="lastNameRules">
                                 </v-text-field>
                   <v-text-field label="Data Nasimento"
                                 single-line
                                 prepend-icon="date_range"
                                 required
-                                v-model="user.birth_date"
+                                v-model="user.birthDate"
                                 :rules="birthDateRules"
                                 :mask="birthMask">
                                 </v-text-field>
@@ -131,7 +136,7 @@ export default {
                                  type="tel"
                                  :mask="cellMask"
                                  required
-                                 v-model="user.cell_phone"
+                                 v-model="user.cellPhone"
                                  :rules="cellRules"/>
                 </v-form>
                 <v-btn block round  color="green"
