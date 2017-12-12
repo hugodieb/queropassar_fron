@@ -57,22 +57,13 @@ export default {
   props: ['academys'],
   data () {
     return {
-      freevideos: [
-        {demoVideo: "https://www.youtube.com/embed/XySESQb3TWE",
-         title: "Matematica - Polinômios", professor: "Jairo Luis da Silva"
-        },
-        {demoVideo: "https://www.youtube.com/embed/MBRmFHUi-ak",
-         title: "Fisica - Cinematica", professor: "Rodrigo Buchfink"
-        },
-        {demoVideo: "https://www.youtube.com/embed/YZpQqZ14GI8",
-         title: "Português - Ortografia", professor: "Aline Ferraz"
-        },
-        {demoVideo: "https://www.youtube.com/embed/NxTVJwxsdU8",
-         title: "Geografia - Vegetação", professor: "Giordano Bombardelli"
-        },
-
-      ]
+      freevideos: [],
     };
+  },
+  mounted() {
+    AppApi.list_freeVideos().then((result)=>{
+      this.freevideos = result.data;
+    });
   },  
 }
 </script>

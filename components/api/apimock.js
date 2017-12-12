@@ -3,7 +3,8 @@ var logged_user = null;
 
 export default {
   list_professores: _mockasync(list_professores),
-  list_academys: _mockasync(list_academys),  
+  list_academys: _mockasync(list_academys),
+  list_freeVideos: _mockasync(list_freeVideos),  
   whoami: _mockasync(whoami),
   login: _mockasync(login),
   logout: _mockasync(logout),
@@ -25,24 +26,44 @@ function list_professores(){
 
 function list_academys(){
   var academys = [
-            {titulo: "EPCAR", descricao: "Colégio militar Cadetes do Ar",
-             avatar: 'epcar.png', date: "04/01/2018", vagas: 200, salario: ""
-            },
-            {titulo: "EEAR", descricao: "Escola de Especialistas da Aeronática",
-             avatar: 'eear.png', date: "02/05/2018", vagas: 180, salario: ""
+          {titulo: "EPCAR", descricao: "Colégio militar Cadetes do Ar",
+           avatar: 'epcar.png', date: "04/01/2018", vagas: 200, salario: ""
+          },
+          {titulo: "EEAR", descricao: "Escola de Especialistas da Aeronática",
+           avatar: 'eear.png', date: "02/05/2018", vagas: 180, salario: ""
 
-            },
-            {titulo: "COLÉGIO NAVAL", descricao: "Colégio militar da Marinha",
-             avatar: 'colegionaval.png', date: "sem data", vagas: 80, salario: ""
-            },
-            {titulo: "APMBB", descricao: "Academia de Polícia Militar SP",
-             avatar: 'barrobranco.jpg', date: "04/01/2018", vagas: 250, salario: "R$ 5768,90"
-            },
+          },
+          {titulo: "COLÉGIO NAVAL", descricao: "Colégio militar da Marinha",
+           avatar: 'colegionaval.png', date: "sem data", vagas: 80, salario: ""
+          },
+          {titulo: "APMBB", descricao: "Academia de Polícia Militar SP",
+           avatar: 'barrobranco.jpg', date: "04/01/2018", vagas: 250, salario: "R$ 5768,90"
+          },
         ];
     var academys = _clone(academys)
 
     return academys;
 
+}
+
+function list_freeVideos(){
+  var demoVideos = [        
+        {demoVideo: "https://www.youtube.com/embed/XySESQb3TWE",
+         title: "Matematica - Polinômios", professor: "Jairo Luis da Silva"
+        },
+        {demoVideo: "https://www.youtube.com/embed/MBRmFHUi-ak",
+         title: "Fisica - Cinematica", professor: "Rodrigo Buchfink"
+        },
+        {demoVideo: "https://www.youtube.com/embed/YZpQqZ14GI8",
+         title: "Português - Ortografia", professor: "Aline Ferraz"
+        },
+        {demoVideo: "https://www.youtube.com/embed/NxTVJwxsdU8",
+         title: "Geografia - Vegetação", professor: "Giordano Bombardelli"
+        },
+      ];
+  var demoVideos = _clone(demoVideos);
+
+  return demoVideos;
 }
 
 
