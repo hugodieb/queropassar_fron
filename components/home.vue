@@ -17,8 +17,8 @@
           <v-card dark color="white">
             <v-container fluid grid-list-md>
               <v-layout row wrap>
-                <v-flex d-flex xs12 sm6 md3 v-for="course in courses" :key="course.id">
-                  <Courses :course='course'></Courses>
+                <v-flex d-flex xs12 sm6 md3 v-for="academy in academys" :key="academy.id">
+                  <Academys :academy='academy'></Academys>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -49,12 +49,12 @@
 <script>
 import AppApi from '~apijs'
 import Vuex from 'vuex'
-import Courses from '~/components/Courses.vue'
+import Academys from '~/components/SchoolAcademys.vue'
 import Videos from '~/components/Videos.vue'
 
 export default {
-  components: {Courses, Videos},
-  props: ['courses'],
+  components: {Academys, Videos},
+  props: ['academys'],
   data () {
     return {
       freevideos: [

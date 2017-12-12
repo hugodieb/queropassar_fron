@@ -4,8 +4,8 @@ import Home from '~/components/home.vue'
 export default {
   components: {Home},
   asyncData() {
-    return AppApi.list_courses().then((response) => {
-      return {courses: response.data}
+    return AppApi.list_academys().then((response) => {
+      return {academys: response.data}
     });
   },
   data(){
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-  <Home :courses="courses"></Home>
+  <Home :academys="academys"></Home>
 </template>
 
 <style>
