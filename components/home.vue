@@ -35,7 +35,7 @@
             <v-container fluid grid-list-md>
               <v-layout row wrap>
                 <v-flex d-flex xs12 sm6 md3 v-for="demo in freevideos" :key="demo.id">
-                  <Videos :demo="demo"></Videos>
+                  <DemoVideos :demo="demo"></DemoVideos>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -50,10 +50,10 @@
 import AppApi from '~apijs'
 import Vuex from 'vuex'
 import Academys from '~/components/SchoolAcademys.vue'
-import Videos from '~/components/Videos.vue'
+import DemoVideos from '~/components/DemoVideos.vue'
 
 export default {
-  components: {Academys, Videos},
+  components: {Academys, DemoVideos},
   props: ['academys'],
   data () {
     return {
