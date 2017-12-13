@@ -39,6 +39,47 @@
                 </v-flex>
               </v-layout>
             </v-container>
+          </v-card>
+          <v-divider></v-divider><br /><br />
+          <v-card dark color="white">
+            <v-tabs >
+              <v-tabs-bar class="white" dark>
+                <v-tabs-slider class="black"></v-tabs-slider>
+                <v-tabs-item
+                  v-for="i in items"
+                  :key="i"
+                  :href="'#tab-' + i"                  
+                >
+                  {{ i }}<v-icon >navigate_next</v-icon>
+                </v-tabs-item>
+              </v-tabs-bar>
+              <v-tabs-items>
+                <v-tabs-content
+                  v-for="i in items"
+                  :key="i"
+                  :id="'tab-' + i"
+                >
+                  <v-flex xs12 sm12 offset-sm0>
+                    <v-card class="success">
+                      <v-card-title primary-title>
+                        Questão: <v-chip>Q3234</v-chip> - Direito Processual Penal / Ação Penal / Denuncia e Queixa
+                      </v-card-title>
+                    </v-card>
+                    <v-card>
+                      <v-card-title >
+                        Ano: 2016 Prova: FADESP - 2016 - PM-PA - Aspirante da Polícia Militar
+                      </v-card-title>
+                      <v-divider light></v-divider>
+                      <v-card-title>
+                        <div>
+                          
+                        </div>
+                      </v-card-title>
+                    </v-card>
+                  </v-flex>                                  
+                </v-tabs-content>
+              </v-tabs-items>
+            </v-tabs>
           </v-card>          
         </v-flex>
       </v-layout>
@@ -58,6 +99,9 @@ export default {
   data () {
     return {
       freevideos: [],
+      items: ['1 - Questão', '2 - Comentário do Professor', '3 - Estátiscas'],
+      inset: false,
+      active: null,
     };
   },
   mounted() {
