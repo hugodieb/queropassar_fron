@@ -41,6 +41,13 @@
             </v-container>
           </v-card>
           <v-divider></v-divider><br /><br />
+          <div class="blue-grey darken-3 pa-3 white--text">
+            <v-layout row wrap>
+              <v-flex xs12>
+                <div class="title">RESOLVA UMA QUESTÃO</div>
+              </v-flex>
+            </v-layout>
+          </div>
           <v-card dark color="white">
             <v-tabs >
               <v-tabs-bar class="white" dark>
@@ -67,13 +74,55 @@
                     </v-card>
                     <v-card>
                       <v-card-title >
-                        Ano: 2016 Prova: FADESP - 2016 - PM-PA - Aspirante da Polícia Militar
+                        <strong>Ano:</strong> <span class="ml-1">2016</span> <span class="ml-5"><strong class="ml-1">Prova:</strong> FADESP - 2016 - PM-PA - Aspirante da Polícia Militar</span>
                       </v-card-title>
                       <v-divider light></v-divider>
                       <v-card-title>
-                        <div>
-                          
-                        </div>
+                        <v-layout row wrap>
+                          <v-flex xs12 md12>
+                            <v-subheader class="text-xs-left">A ação penal, que constitui poder político constitucional de acudir aos tribunais para formular a pretensão acusatória, pode ser de vários tipos.<br> Sobre o assunto é correto afirmar que</v-subheader>
+                            <v-card flat>
+                              <v-card-text>
+                                <v-radio-group v-model="question" column>
+                                  <v-radio label="A) a ação penal pública é regida pelos princípios da oportunidade, da obrigatoriedade e da indisponibilidade.
+                                  "
+                                  value="q1" 
+                                  >                                    
+                                  </v-radio>
+                                  <v-radio label="B) a ação penal privada concorrente ocorre em casos de crimes contra a presidência da república.
+                                  "
+                                  value="q2" 
+                                  >                                    
+                                  </v-radio>
+                                  <v-radio label="C)a ação privada subsidiária da pública ocorre com a desídia do Ministério Público, sendo que este ainda pode repudiar a queixa.
+                                  "
+                                  value="q3" 
+                                  >                                    
+                                  </v-radio>
+                                  <v-radio label="D) na ação pública condicionada, diante da requisição do Ministro da Justiça, o Ministério Público deve denunciar.
+                                  "
+                                  value="q4" 
+                                  >                                    
+                                  </v-radio>
+                                </v-radio-group>
+                                <v-chip color="teal" text-color="white" v-if="question == 'q3'">
+                                  <v-avatar>
+                                    <v-icon>check_circle</v-icon>
+                                  </v-avatar>
+                                  Acertou!
+                                </v-chip>
+                                <v-chip color="red" text-color="white"
+                                        v-if="question == 'q1' || question == 'q2' || question == 'q4'"
+                                >
+                                  <v-avatar>
+                                    <v-icon>highlight_off</v-icon>
+                                  </v-avatar>
+                                  Errou!
+                                </v-chip>                                
+                              </v-card-text>
+                            </v-card>
+                          </v-flex>
+                        </v-layout>
                       </v-card-title>
                     </v-card>
                   </v-flex>                                  
@@ -102,6 +151,8 @@ export default {
       items: ['1 - Questão', '2 - Comentário do Professor', '3 - Estátiscas'],
       inset: false,
       active: null,
+      question: null,
+      row: null,
     };
   },
   mounted() {
