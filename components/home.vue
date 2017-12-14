@@ -67,7 +67,7 @@
                   :id="'tab-' + i"
                 >
                   <v-flex xs12 sm12 offset-sm0>
-                    <v-card class="success">
+                    <v-card color="grey">
                       <v-card-title primary-title>
                         Questão: <v-chip>Q3234</v-chip> - Direito Processual Penal / Ação Penal / Denuncia e Queixa
                       </v-card-title>
