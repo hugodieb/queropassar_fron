@@ -49,27 +49,27 @@
             </v-layout>
           </div>
           <v-card dark color="white">
-            <v-tabs >
+            <v-tabs v-model="active">
               <v-tabs-bar class="white" dark>
                 <v-tabs-slider class="black"></v-tabs-slider>
                 <v-tabs-item
-                  v-for="i in items"
-                  :key="i"
-                  :href="'#tab-' + i"                  
+                  v-for="tab in tabs"
+                  :key="tab"
+                  :href="'#tab-' + tab"                  
                 >
-                  {{ i }}<v-icon >navigate_next</v-icon>
+                  {{tabTitle[tabs.indexOf(tab)]}}<v-icon >navigate_next</v-icon>
                 </v-tabs-item>
               </v-tabs-bar>
               <v-tabs-items>
                 <v-tabs-content
-                  v-for="i in items"
-                  :key="i"
-                  :id="'tab-' + i"
+                  v-for="tab in tabs"
+                  :key="tab"
+                  :id="'tab-' + tab"
                 >
-                  <v-flex xs12 sm12 offset-sm0>
+                  <v-flex xs12 sm12 offset-sm0 v-if="active == 'tab-tab-1'">
                     <v-card color="grey">
                       <v-card-title primary-title>
-                        Questão: <v-chip>Q3234</v-chip> - Direito Processual Penal / Ação Penal / Denuncia e Queixa
+                        Questão: <v-chip>Q3234</v-chip> - Direito Processual Penal / Ação Penal / Denuncia e Queixa {{active}}
                       </v-card-title>
                     </v-card>
                     <v-card>
@@ -125,6 +125,13 @@
                         </v-layout>
                       </v-card-title>
                     </v-card>
+                  </v-flex>
+                  <v-flex xs12 sm12 offset-sm0 v-if="active == 'tab-tab-2'">
+                    <v-card>                      
+                      <v-flex xs12 sm12 offset-sm3>                      
+                        <v-card-media><iframe width="600" height="435" :src="tabVideoUrl" frameborder="0" allowfullscreen></iframe></v-card-media>
+                      </v-flex>                       
+                    </v-card>
                   </v-flex>                                  
                 </v-tabs-content>
               </v-tabs-items>
@@ -148,11 +155,13 @@ export default {
   data () {
     return {
       freevideos: [],
-      items: ['1 - Questão', '2 - Comentário do Professor', '3 - Estátiscas'],
+      tabs: ['tab-1', 'tab-2', 'tab-3'],
+      tabTitle: ['1 - Questão', '2 - Comentário do Professor', '3 - Estatíscas'],
       inset: false,
       active: null,
       question: null,
       row: null,
+      tabVideoUrl: 'https://www.youtube.com/embed/xSdpzqerRHQ'
     };
   },
   mounted() {
