@@ -21,6 +21,7 @@ module.exports = {
     '~plugins/vuetify.js',
     '~plugins/filters.js',
     {src: '~plugins/vue2-filters', ssr: false},
+    {src: '~plugins/vue-chartjs.js', ssr: false},
   ].concat(_isdev ? [] : [
   ]),
   css: [

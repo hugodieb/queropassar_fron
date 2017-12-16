@@ -132,6 +132,14 @@
                         <v-card-media><iframe width="600" height="435" :src="tabVideoUrl" frameborder="0" allowfullscreen></iframe></v-card-media>
                       </v-flex>                       
                     </v-card>
+                  </v-flex>
+                  <v-flex xs12 sm12 offset-sm0 v-if="active == 'tab-tab-3'">
+                    <v-card>                      
+                      <v-flex xs12 sm12 offset-sm1>
+                        <p><strong>Alternativas mais respondidas</strong></p>                     
+                        <line-chart></line-chart>
+                      </v-flex>                       
+                    </v-card>
                   </v-flex>                                  
                 </v-tabs-content>
               </v-tabs-items>
@@ -151,24 +159,24 @@ import DemoVideos from '~/components/DemoVideos.vue'
 
 export default {
   components: {Academys, DemoVideos},
-  props: ['academys'],
+  props: ['academys',],
   data () {
     return {
       freevideos: [],
       tabs: ['tab-1', 'tab-2', 'tab-3'],
-      tabTitle: ['1 - Questão', '2 - Comentário do Professor', '3 - Estatíscas'],
+      tabTitle: ['1 - Questão', '2 - Comentário do Professor', '3 - Dúvidas'],
       inset: false,
       active: null,
       question: null,
       row: null,
-      tabVideoUrl: 'https://www.youtube.com/embed/xSdpzqerRHQ'
+      tabVideoUrl: 'https://www.youtube.com/embed/xSdpzqerRHQ',      
     };
   },
   mounted() {
     AppApi.list_freeVideos().then((result)=>{
       this.freevideos = result.data;
-    });
-  },  
+    });    
+  },   
 }
 </script>
 
