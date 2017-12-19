@@ -158,34 +158,14 @@
             scrollable
           >
             <v-card>
-                <v-toolbar style="flex: 0 0 auto;" dark class="primary">
+              <v-toolbar style="flex: 0 0 auto;" dark class="brown lighten-1">
                 <v-btn icon @click.native="dialog = false" dark>
                   <v-icon>close</v-icon>
                 </v-btn>
-                <v-toolbar-title>Settings</v-toolbar-title>                        
+                <v-toolbar-title>Informação</v-toolbar-title>                        
               </v-toolbar>
-              <v-card-text>           
-              <v-list three-line subheader>
-                <v-subheader>User Controls</v-subheader>
-                <v-list-tile avatar>
-                  <v-list-tile-content>
-                    <v-list-tile-title>Content filtering</v-list-tile-title>
-                    <v-list-tile-sub-title>Set the content filtering level to restrict apps that can be downloaded</v-list-tile-sub-title>
-                  </v-list-tile-content>
-                </v-list-tile>
-                <v-list-tile avatar>
-                  <v-list-tile-content>
-                    <v-list-tile-title>Password</v-list-tile-title>
-                    <v-list-tile-sub-title>Require password for purchase or use password to restrict purchase</v-list-tile-sub-title>
-                  </v-list-tile-content>
-                </v-list-tile>
-              </v-list>
-              <v-divider></v-divider>
-              <v-list three-line subheader>
-                <v-subheader>General</v-subheader>           
-              </v-list>
-              </v-card-text>          
-            </v-card>
+              <InfoDialog :infoacademy='academy'></InfoDialog>                      
+            </v-card>            
           </v-dialog>
         </v-layout>
       </div>
@@ -197,9 +177,10 @@ import AppApi from '~apijs'
 import Vuex from 'vuex'
 import Academys from '~/components/SchoolAcademys.vue'
 import DemoVideos from '~/components/DemoVideos.vue'
+import InfoDialog from '~/components/InfoDialog.vue'
 
 export default {
-  components: {Academys, DemoVideos},
+  components: {Academys, DemoVideos, InfoDialog},
   props: ['academys',],
   data () {
     return {

@@ -27,17 +27,29 @@ function list_professores(){
 function list_academys(){
   var academys = [
           {titulo: "EPCAR", descricao: "Colégio militar Cadetes do Ar",
-           avatar: 'epcar.png', date: "04/01/2018", vagas: 200, salario: ""
+           avatar: 'epcar.png', date: "04/01/2018", vagas: 200,
+           requisitos: "Estar cursando ou ter concluído o último ano do Ensino Fundamental",
+           idade: "de 14 a 17 anos", sexo: "masculino e feminino",
+           disciplinas: "Português, Matematica e Inglês"
           },
           {titulo: "EEAR", descricao: "Escola de Especialistas da Aeronática",
-           avatar: 'eear.png', date: "02/05/2018", vagas: 180, salario: ""
+           avatar: 'eear.png', date: "02/05/2018", vagas: 180,
+           requisitos: "Estar cursando ou ter concluído o 3º ano do Ensino Médio",
+           idade: "Máximo de 24 anos", sexo: "masculino e feminino",
+           disciplinas: "Português, Matematica, Física e Inglês"
 
           },
           {titulo: "COLÉGIO NAVAL", descricao: "Colégio militar da Marinha",
-           avatar: 'colegionaval.png', date: "sem data", vagas: 80, salario: ""
+           avatar: 'colegionaval.png', date: "sem data", vagas: 80,
+           requisitos: "Estar cursando ou ter concluído o último ano do Ensino Fundamental",
+           idade: "de 14 a 17 anos", sexo: "masculino e feminino",
+           disciplinas: "Português, Matematica, Inglês, Estudos Sociais e Redação"
           },
           {titulo: "APMBB", descricao: "Academia de Polícia Militar SP",
-           avatar: 'barrobranco.jpg', date: "04/01/2018", vagas: 250, salario: "R$ 5768,90"
+           avatar: 'barrobranco.jpg', date: "04/01/2018", vagas: 250,
+           requisitos: "Estar cursando ou ter concluído o 3º ano do Ensino Médio",
+           idade: "máxima de 30 anos", sexo: "masculino e feminino",
+           disciplinas: "Português, Matemática, História, Geografia, Sociologia, Filosofia, Inglês e Redação"
           },
         ];
     var academys = _clone(academys)
