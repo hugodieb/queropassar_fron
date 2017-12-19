@@ -1,5 +1,5 @@
 <template>	
-      <v-card id="cardinfo" dark>
+      <v-card id="cardinfo" dark :hover=true>
         <v-layout row>
           <v-flex xs4>
             <v-card-media
@@ -33,12 +33,12 @@
             </v-list-tile>
             <v-list-tile avatar >              
               <v-list-tile-content>
-                <v-list-tile-title >Mais informações<v-icon>get_app</v-icon></v-list-tile-title>
+                <v-list-tile-title ><v-icon>get_app</v-icon> Mais informações</v-list-tile-title>
               </v-list-tile-content>              
             </v-list-tile>
           </v-list>
         </v-card>
-      </v-card>    
+      </v-card>          
 </template>
 
 <script>
@@ -48,7 +48,8 @@ import Vuex from 'vuex'
 export default {
 	props: ['academy'],
 	data() {
-		return {			
+		return {
+      			
 		};
 	},
 	methods: {

@@ -17,7 +17,7 @@
           <v-card dark color="white">
             <v-container fluid grid-list-md>
               <v-layout row wrap>
-                <v-flex d-flex xs12 sm6 md3 v-for="academy in academys" :key="academy.id">
+                <v-flex d-flex xs12 sm6 md3 v-for="academy in academys" :key="academy.id" @click.stop="dialog = true">
                   <Academys :academy='academy'></Academys>
                 </v-flex>
               </v-layout>
@@ -128,15 +128,15 @@
                   </v-flex>
                   <v-flex xs12 sm12 offset-sm0 v-if="active == 'tab-tab-2'">
                     <v-card>                      
-                      <v-flex xs12 sm12 offset-sm3>                      
-                        <v-card-media><iframe width="600" height="435" :src="tabVideoUrl" frameborder="0" allowfullscreen></iframe></v-card-media>
+                      <v-flex xs12 sm12 offset-sm2>                      
+                        <v-card-media><iframe width="800" height="435" :src="tabVideoUrl" frameborder="0" allowfullscreen></iframe></v-card-media>
                       </v-flex>                       
                     </v-card>
                   </v-flex>
                   <v-flex xs12 sm12 offset-sm0 v-if="active == 'tab-tab-3'">
                     <v-card>                      
-                      <v-flex xs12 sm12 offset-sm1>
-                        <p><strong>Alternativas mais respondidas</strong></p>                     
+                      <v-flex xs12 sm12 offset-sm0>
+                        <p><strong>Alternativas mais respondidas(alternativa correta (C))</strong></p>           
                         <line-chart></line-chart>
                       </v-flex>                       
                     </v-card>
@@ -148,6 +148,47 @@
         </v-flex>
       </v-layout>
     </v-container>
+    <div>
+        <v-layout row justify-center>
+          <v-dialog
+            v-model="dialog"
+            fullscreen
+            transition="dialog-bottom-transition"
+            :overlay=false
+            scrollable
+          >
+            <v-card>
+                <v-toolbar style="flex: 0 0 auto;" dark class="primary">
+                <v-btn icon @click.native="dialog = false" dark>
+                  <v-icon>close</v-icon>
+                </v-btn>
+                <v-toolbar-title>Settings</v-toolbar-title>                        
+              </v-toolbar>
+              <v-card-text>           
+              <v-list three-line subheader>
+                <v-subheader>User Controls</v-subheader>
+                <v-list-tile avatar>
+                  <v-list-tile-content>
+                    <v-list-tile-title>Content filtering</v-list-tile-title>
+                    <v-list-tile-sub-title>Set the content filtering level to restrict apps that can be downloaded</v-list-tile-sub-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile avatar>
+                  <v-list-tile-content>
+                    <v-list-tile-title>Password</v-list-tile-title>
+                    <v-list-tile-sub-title>Require password for purchase or use password to restrict purchase</v-list-tile-sub-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+              </v-list>
+              <v-divider></v-divider>
+              <v-list three-line subheader>
+                <v-subheader>General</v-subheader>           
+              </v-list>
+              </v-card-text>          
+            </v-card>
+          </v-dialog>
+        </v-layout>
+      </div>
   </main>
 </template>
 
@@ -164,12 +205,13 @@ export default {
     return {
       freevideos: [],
       tabs: ['tab-1', 'tab-2', 'tab-3'],
-      tabTitle: ['1 - Questão', '2 - Comentário do Professor', '3 - Dúvidas'],
+      tabTitle: ['1 - Questão', '2 - Comentário do Professor', '3 - Estatísticas'],
       inset: false,
       active: null,
       question: null,
       row: null,
-      tabVideoUrl: 'https://www.youtube.com/embed/xSdpzqerRHQ',      
+      tabVideoUrl: 'https://www.youtube.com/embed/xSdpzqerRHQ',
+      dialog: false,      
     };
   },
   mounted() {

@@ -21,6 +21,6 @@ Vue.component('line-chart', {
 var vm = new Vue({
   el: '.app',
   data: {
-    message: 'Hello World'
+    
   }
 })
