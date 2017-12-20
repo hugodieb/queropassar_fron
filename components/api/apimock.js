@@ -30,26 +30,30 @@ function list_academys(){
            avatar: 'epcar.png', date: "04/01/2018", vagas: 200,
            requisitos: "Estar cursando ou ter concluído o último ano do Ensino Fundamental",
            idade: "de 14 a 17 anos", sexo: "masculino e feminino",
-           disciplinas: "Português, Matematica e Inglês"
+           disciplinas: "Português, Matematica, Inglês e Redação",
+           url: 'http://www2.fab.mil.br/epcar/'
           },
           {titulo: "EEAR", descricao: "Escola de Especialistas da Aeronática",
            avatar: 'eear.png', date: "02/05/2018", vagas: 180,
            requisitos: "Estar cursando ou ter concluído o 3º ano do Ensino Médio",
            idade: "Máximo de 24 anos", sexo: "masculino e feminino",
-           disciplinas: "Português, Matematica, Física e Inglês"
+           disciplinas: "Português, Matematica, Física e Inglês",
+           url: 'http://ingresso.eear.aer.mil.br/'
 
           },
           {titulo: "COLÉGIO NAVAL", descricao: "Colégio militar da Marinha",
            avatar: 'colegionaval.png', date: "sem data", vagas: 80,
            requisitos: "Estar cursando ou ter concluído o último ano do Ensino Fundamental",
            idade: "de 14 a 17 anos", sexo: "masculino e feminino",
-           disciplinas: "Português, Matematica, Inglês, Estudos Sociais e Redação"
+           disciplinas: "Português, Matematica, Estudos Sociais e Ciências",
+           url: 'https://www.marinha.mil.br/ensino/?q=colegionaval/colegio_princ'
           },
           {titulo: "APMBB", descricao: "Academia de Polícia Militar SP",
            avatar: 'barrobranco.jpg', date: "04/01/2018", vagas: 250,
            requisitos: "Estar cursando ou ter concluído o 3º ano do Ensino Médio",
            idade: "máxima de 30 anos", sexo: "masculino e feminino",
-           disciplinas: "Português, Matemática, História, Geografia, Sociologia, Filosofia, Inglês e Redação"
+           disciplinas: "Português, Matemática, História, Geografia, Sociologia, Filosofia, Inglês e Redação",
+           url: 'http://www.polmil.sp.gov.br/'
           },
         ];
     var academys = _clone(academys)

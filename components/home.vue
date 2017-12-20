@@ -17,7 +17,9 @@
           <v-card dark color="white">
             <v-container fluid grid-list-md>
               <v-layout row wrap>
-                <v-flex d-flex xs12 sm6 md3 v-for="academy in academys" :key="academy.id" @click.stop="dialog = true">
+                <v-flex d-flex xs12 sm6 md3
+                        v-for="academy in academys"
+                        :key="academy.id" @click="openInfoDialog($event, academy)">
                   <Academys :academy='academy'></Academys>
                 </v-flex>
               </v-layout>
@@ -162,9 +164,9 @@
                 <v-btn icon @click.native="dialog = false" dark>
                   <v-icon>close</v-icon>
                 </v-btn>
-                <v-toolbar-title>Informação</v-toolbar-title>                        
+                <v-toolbar-title>Informações</v-toolbar-title>                        
               </v-toolbar>
-              <InfoDialog :infoacademy='academy'></InfoDialog>                      
+              <InfoDialog :infoacademy='infoacademy'></InfoDialog>                      
             </v-card>            
           </v-dialog>
         </v-layout>
@@ -185,6 +187,7 @@ export default {
   data () {
     return {
       freevideos: [],
+      infoacademy: [],
       tabs: ['tab-1', 'tab-2', 'tab-3'],
       tabTitle: ['1 - Questão', '2 - Comentário do Professor', '3 - Estatísticas'],
       inset: false,
@@ -194,6 +197,12 @@ export default {
       tabVideoUrl: 'https://www.youtube.com/embed/xSdpzqerRHQ',
       dialog: false,      
     };
+  },
+  methods: {
+    openInfoDialog(evt, value){
+      this.dialog = true;
+      this.infoacademy = value;            
+    },
   },
   mounted() {
     AppApi.list_freeVideos().then((result)=>{
