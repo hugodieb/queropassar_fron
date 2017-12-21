@@ -21,14 +21,12 @@ export default {
         timeout: 1000,
         icon: '',
       },
-      items: [
-        { icon: 'contacts', text: 'Contatos' },
-        { icon: 'chrome_reader_mode', text: 'Disciplinas' },
-        { icon: 'new_releases', text: 'Próximos Concursos' },
-        { icon: 'assignment', text: 'Marcações do Aluno' },
-        { icon: 'movie', text: 'Vídeo Aulas' },
-        { icon: 'feedback', text: 'Dúvidas do Aluno' },
-        { icon: 'notifications', text: 'Notificações' },
+      items: [        
+        { icon: 'chrome_reader_mode', text: 'Disciplinas', id: 'discipline' },
+        { icon: 'movie', text: 'Vídeo Aulas', id: 'videos' },        
+        { icon: 'assignment', text: 'Anotaçṍes do Aluno', id: 'assignment' },        
+        { icon: 'feedback', text: 'Dúvidas do Aluno', id: 'feedback' },
+        { icon: 'notifications', text: 'Notificações', id: 'notifications' },
       ],
       perfils: [
         {icon: 'person_outline', text: 'Aluno'},
@@ -61,8 +59,6 @@ export default {
           this.$store.commit('SET_LOGGED_USER', null);
           this.$router.push({name: 'index'});
         }
-
-
       });
     },
     show_toast(data){
@@ -71,17 +67,33 @@ export default {
       this.toasts_model.visible = true;
       this.toasts_model.icon = data.icon
     },
+    loadGuide(type){
+      switch (type){
+        case 'discipline':
+          this.$router.push({name: 'guides-disciplines'});
+          break;
+        case 'videos':
+          this.$router.push({name: 'guides-lessonsVideo'});
+          break;
+        case 'assignment':
+          this.$router.push({name: 'guides-assignments'});
+          break;
+        case 'feedback':
+          this.$router.push({name: 'guides-feedbacks'});
+          break;
+        case 'notifications':
+          this.$router.push({name: 'guides-notifications'});
+          break;
+      }
+    },
   }
 }
 </script>
 
 <template>
   <v-app>
-    <v-navigation-drawer
-      temporary
-      absolute
-      persistent
-      clipped
+    <v-navigation-drawer      
+      :clipped="$vuetify.breakpoint.width > 1264"
       app
       v-model="drawer"
       class="nav-drawer"
@@ -98,10 +110,7 @@ export default {
           <v-subheader v-if="item.heading">
             {{ item.heading }}
           </v-subheader>
-        </v-flex>
-        <v-flex xs6 class="text-xs-center">
-          <a href="#!" class="body-2 black--text">EDIT</a>
-        </v-flex>
+        </v-flex>        
       </v-layout>
       <v-list-group v-else-if="item.children" v-model="item.model" no-action>
         <v-list-tile slot="item" @click="">
@@ -117,7 +126,7 @@ export default {
         <v-list-tile
           v-for="(child, i) in item.children"
           :key="i"
-          @click=""
+          @click=""          
         >
         <v-list-tile-action v-if="child.icon">
           <v-icon>{{ child.icon }}</v-icon>
@@ -129,7 +138,7 @@ export default {
         </v-list-tile-content>
         </v-list-tile>
       </v-list-group>
-      <v-list-tile v-else @click="">
+      <v-list-tile v-else @click.stop="loadGuide(item.id)">
         <v-list-tile-action>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-tile-action>
@@ -149,7 +158,7 @@ export default {
       clipped-left
       fixed
     >
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon :disabled="!logged_user" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-spacer></v-spacer>
       <v-toolbar-title><router-link :to="{ name: 'index'}">
                           <img id="logomain" src="/images/logo3.png" class="toolbar-title" />

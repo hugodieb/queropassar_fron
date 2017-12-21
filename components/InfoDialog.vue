@@ -1,10 +1,12 @@
 <template>
 	<v-card-text>           
 	  <v-list three-line subheader>
-	    <v-subheader><v-chip>
+	    <v-subheader>
+	      <v-chip>
             <v-avatar class="teal">@</v-avatar>
             <a :href="infoacademy.url" target="_blank"> {{infoacademy.titulo}} </a>
-          </v-chip></v-subheader>
+          </v-chip>
+        </v-subheader>
 	    
 	    <v-list-tile avatar>
 	      <v-list-tile-content>
