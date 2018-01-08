@@ -1,4 +1,4 @@
-# mynuxtapp
+# Tamandare
 
 > Nuxt.js project
 
