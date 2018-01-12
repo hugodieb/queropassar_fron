@@ -93,10 +93,10 @@ export default {
 <template>
   <v-app>
     <v-navigation-drawer      
-      :clipped="$vuetify.breakpoint.width > 1264"
-      app
+      temporary
       v-model="drawer"
-      class="nav-drawer"
+      light
+      absolute
     >
     <v-list dense>
     <template v-for="(item, i) in items">
