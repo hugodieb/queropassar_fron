@@ -151,29 +151,30 @@ export default {
     </template>
 </v-list>
 </v-navigation-drawer>
-    <v-toolbar
-      light
+    <v-toolbar      
       app
-      color="green"
+      color="light-green darken-1"
       clipped-left
       fixed
+      height="60em"
+      xs6
     >
       <v-toolbar-side-icon :disabled="!logged_user" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-spacer></v-spacer>
-      <v-toolbar-title><router-link :to="{ name: 'index'}">
-                          <img id="logomain" src="/images/logo3.png" class="toolbar-title" />
-                        </router-link>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items>
-        <v-btn color="primary" dark slot="activator" class="green"
-                v-if="!logged_user" @click="open_login_social_fake($event)"
-                >
-                Entrar</v-btn>
+      <v-spacer></v-spacer>      
+      <v-toolbar-items class="hidden-sm-and-down">       
+        <div>
+          <v-btn flat class="ma-3"
+                  v-if="!logged_user" @click="open_login_social_fake($event)"
+                  >
+                  ENTRAR</v-btn>
+        </div>
+        <div>
         <v-menu v-if="logged_user" transition="slide-y-transition" bottom>
-          <v-btn color="primary" dark slot="activator" class="green">
-            {{logged_user.firtsName}}
-          </v-btn>
+          
+            <v-avatar dark slot="activator" class="ma-2">
+              <img :src="logged_user.avatar" alt="">
+            </v-avatar>
+          
           <v-list>
             <v-list-tile :router="true" :to="{name: 'perfil'}">
               <v-list-tile-action>
@@ -188,7 +189,7 @@ export default {
               <v-list-tile-title v-text="'Sair'"></v-list-tile-title>
             </v-list-tile>
           </v-list>
-        </v-menu>
+        </v-menu></div>
       </v-toolbar-items>
     </v-toolbar>
     <main>

@@ -1,5 +1,5 @@
 <template>	
-      <v-card id="cardinfo" dark :hover=true>
+      <v-card id="cardinfo" class="cyan lighten-4" :hover=true>
         <v-layout row>
           <v-flex xs4>
             <v-card-media
@@ -14,7 +14,7 @@
           v-text="academy.descricao">
         </v-card-text>
         <v-card>          
-          <v-list class="green">
+          <v-list class="teal accent-4">
             <v-list-tile avatar >
               <v-list-tile-action>
                 <v-icon >date_range</v-icon>

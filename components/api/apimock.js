@@ -87,6 +87,7 @@ function login(username, password) {
   if (password){
     if(username == 'Leonardo'){
       logged_user = {
+        avatar: 'https://dyn.web.whatsapp.com/pp?e=https%3A%2F%2Fpps.whatsapp.net%2Fv%2Ft61.11540-24%2F21184073_169810920242414_2472691785604792320_n.jpg%3Foe%3D5A61EC49%26oh%3D9f587f9a6348de504e07ba7c28610760&t=l&u=5512981612435%40c.us&i=1504838125',
         username: username,
         firtsName: 'Leonardo',
         lastName: 'Lobato',

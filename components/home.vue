@@ -3,9 +3,9 @@
     <div class="hero-cover">
       <div class="hero">
         <v-container grid-list-md text-xs-center>
-          <div class="hero-content">
-            <h2>Curso preparatório Tamandaré</h2>
-            <h3 class="headline mb-0">A Tamandaré prepara voçê para ingressar nos melhores colégios militares do Brasil.</h3>
+          <div class="hero-content ma-5">
+            <h2>SOU FERA</h2>
+            <h3 class="headline mb-0">AJUDANDO VOÇÊ A ENCARAR DESAFIOS.</h3>
           </div>
         </v-container>
       </div>

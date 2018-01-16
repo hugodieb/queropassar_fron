@@ -1,12 +1,12 @@
 <template>  
-      <v-card id="cardinfo" dark>
+      <v-card id="cardinfo" dark xs12 sm12>
         <v-layout row>
-          <v-flex xs12>
-            <v-card-media contain><iframe height="300" :src="demo.demoVideo" frameborder="0" allowfullscreen></iframe></v-card-media>
+          <v-flex xs12 sm12>
+            <v-card-media contain><iframe height="300" width="100%" :src="demo.demoVideo" frameborder="0" allowfullscreen></iframe></v-card-media>
           </v-flex>                    
         </v-layout>       
         <v-card>          
-          <v-list class="green">
+          <v-list class="teal accent-4">
             <v-list-tile>
               <v-list-tile-action>
                 <v-icon >subtitles</v-icon>
