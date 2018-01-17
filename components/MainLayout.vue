@@ -161,7 +161,7 @@ export default {
     >
       <v-toolbar-side-icon :disabled="!logged_user" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-spacer></v-spacer>      
-      <v-toolbar-items class="hidden-sm-and-down">       
+      <v-toolbar-items class="">       
         <div>
           <v-btn flat class="ma-3"
                   v-if="!logged_user" @click="open_login_social_fake($event)"
