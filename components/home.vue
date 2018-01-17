@@ -3,9 +3,20 @@
     <div class="hero-cover">
       <div class="hero">
         <v-container grid-list-md text-xs-center>
-          <div class="hero-content ma-5">
-            <h2>SOU FERA</h2>
-            <h3 class="headline mb-0">AJUDANDO VOÇÊ A ENCARAR DESAFIOS.</h3>
+          <div class="hero-content mb-5">
+            <h5><span>Nerd Concursos</span></h5>
+            <p>Estudar para conquistar.</p>
+            <v-layout wrap justify-space-around align-center>
+            <v-avatar class="amber accent-2" :size="avatarSize">
+              <p><span class="white--text headline">Matematica</span></p>              
+            </v-avatar>
+            <v-avatar class="red" :size="avatarSize">
+              <p><span class="white--text headline">Física</span></p>              
+            </v-avatar>
+            <v-avatar class="amber accent-2" :size="avatarSize">
+              <p><span class="white--text headline">Química</span></p>              
+            </v-avatar>
+            </v-layout>            
           </div>
         </v-container>
       </div>
@@ -130,12 +141,12 @@
                   </v-flex>
                   <v-flex xs12 sm12 offset-sm0 v-if="active == 'tab-tab-2'">
                     <v-card>                      
-                      <v-flex xs12 sm12 offset-sm2>                      
-                        <v-card-media><iframe width="800" height="435" :src="tabVideoUrl" frameborder="0" allowfullscreen></iframe></v-card-media>
+                      <v-flex xs12 sm8 offset-sm2 offset-xs0 >                      
+                        <v-card-media><iframe width="100%" height="435" :src="tabVideoUrl" frameborder="0" allowfullscreen></iframe></v-card-media>
                       </v-flex>                       
                     </v-card>
                   </v-flex>
-                  <v-flex xs12 sm12 offset-sm0 v-if="active == 'tab-tab-3'">
+                  <v-flex xs12 sm12 md8 lg8 offset-sm0 v-if="active == 'tab-tab-3'">
                     <v-card>                      
                       <v-flex xs12 sm12 offset-sm0>
                         <p><strong>Alternativas mais respondidas(alternativa correta (C))</strong></p>           
@@ -195,7 +206,8 @@ export default {
       question: null,
       row: null,
       tabVideoUrl: 'https://www.youtube.com/embed/xSdpzqerRHQ',
-      dialog: false,      
+      dialog: false,
+      avatarSize: "130px",      
     };
   },
   methods: {
@@ -216,12 +228,28 @@ export default {
 .hero-cover {
   background: url(/static/images/aluno4.png) no-repeat center center fixed;
   background-size: cover;
-  height: 500px;
+  height: 500px;  
 }
 .hero {
   max-width: 100%;
+  height: 500px;
   margin: 0 auto;
   position: relative;
+  background-color: rgba(0, 80, 0, 0.8);  
+}
+.hero div h5 {
+  color: white;
+  font-size: 55px;
+}
+.hero div h5 span {
+  font-weight: bold;
+}
+.hero div p {
+  color: white;
+  font-size: 30px;
+}
+.hero div img {
+  margin-left: 1px;
 }
 .hero-content {
   padding-top: 20%;

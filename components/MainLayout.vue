@@ -151,7 +151,8 @@ export default {
     </template>
 </v-list>
 </v-navigation-drawer>
-    <v-toolbar      
+    <v-toolbar
+      id="mainmenu"      
       app
       color="light-green darken-1"
       clipped-left
@@ -159,14 +160,16 @@ export default {
       height="60em"
       xs6
     >
-      <v-toolbar-side-icon :disabled="!logged_user" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon color="white" :disabled="!logged_user" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-spacer></v-spacer> 
+      <img src="images/logo7.png">
       <v-spacer></v-spacer>      
       <v-toolbar-items class="">       
         <div>
-          <v-btn flat class="ma-3"
+          <v-btn fab flat class="ma-1"
                   v-if="!logged_user" @click="open_login_social_fake($event)"
                   >
-                  ENTRAR</v-btn>
+                  <v-icon color="white">account_circle</v-icon></v-btn>
         </div>
         <div>
         <v-menu v-if="logged_user" transition="slide-y-transition" bottom>
@@ -234,5 +237,8 @@ a {
 #logomain {
   width: 7em;
   height: 7em;
+}
+#mainmenu {
+  opacity: 0.8;
 }
 </style>
