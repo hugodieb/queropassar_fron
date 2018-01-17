@@ -169,7 +169,7 @@ export default {
           <v-btn fab flat class="ma-1"
                   v-if="!logged_user" @click="open_login_social_fake($event)"
                   >
-                  <v-icon color="white">account_circle</v-icon></v-btn>
+                  <v-icon color="white" large>account_circle</v-icon></v-btn>
         </div>
         <div>
         <v-menu v-if="logged_user" transition="slide-y-transition" bottom>
