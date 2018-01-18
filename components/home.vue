@@ -7,15 +7,9 @@
             <h5><span>Nerd Concursos</span></h5>
             <p>Estudar para conquistar.</p>
             <v-layout wrap justify-space-around align-center>
-            <v-avatar class="amber accent-2" :size="avatarSize">
-              <p><span class="white--text headline">Matematica</span></p>              
-            </v-avatar>
-            <v-avatar class="red" :size="avatarSize">
-              <p><span class="white--text headline">Física</span></p>              
-            </v-avatar>
-            <v-avatar class="amber accent-2" :size="avatarSize">
-              <p><span class="white--text headline">Química</span></p>              
-            </v-avatar>
+              <v-avatar class="red lighten-1" :size="avatarSize" v-for="subject in subjects">
+                <span class="white--text headline">{{subject}}</span>              
+              </v-avatar>              
             </v-layout>            
           </div>
         </v-container>
@@ -201,13 +195,14 @@ export default {
       infoacademy: [],
       tabs: ['tab-1', 'tab-2', 'tab-3'],
       tabTitle: ['1 - Questão', '2 - Comentário do Professor', '3 - Estatísticas'],
+      subjects: ['Matematica', 'Física', 'Química', 'Biologia', 'Ciências'],
       inset: false,
       active: null,
       question: null,
       row: null,
       tabVideoUrl: 'https://www.youtube.com/embed/xSdpzqerRHQ',
       dialog: false,
-      avatarSize: "130px",      
+      avatarSize: "9.5em",      
     };
   },
   methods: {
