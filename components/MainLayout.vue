@@ -155,9 +155,7 @@ export default {
       id="mainmenu"      
       app
       color="light-green darken-1"
-      clipped-left
-      fixed
-      height="60em"
+      clipped-left     
       xs6
     >
       <v-toolbar-side-icon color="white" :disabled="!logged_user" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
@@ -173,9 +171,9 @@ export default {
         </div>
         <div>
         <v-menu v-if="logged_user" transition="slide-y-transition" bottom>          
-          <v-avatar class="ma-2">
-            <img :src="logged_user.avatar" alt="">
-          </v-avatar>          
+            <v-avatar slot="activator" class="ma-2">
+              <img :src="logged_user.avatar" alt="userAvatar">
+            </v-avatar>          
           <v-list>
             <v-list-tile :router="true" :to="{name: 'perfil'}">
               <v-list-tile-action>

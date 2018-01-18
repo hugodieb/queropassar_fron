@@ -2,12 +2,12 @@
   <main sm12>
     <div class="hero-cover">
       <div class="hero">
-        <v-container grid-list-md text-xs-center>
+        <v-container grid-list-md grid-list-xs text-xs-center>
           <div class="hero-content mb-5">
             <h5><span>Nerd Concursos</span></h5>
             <p>Estudar para conquistar.</p>
-            <v-layout wrap justify-space-around align-center>
-              <v-avatar class="red lighten-1" :size="avatarSize" v-for="subject in subjects">
+            <v-layout justify-space-around align-center>
+              <v-avatar class="orange lighten-1" :size="avatarSize" v-for="subject in subjects">
                 <span class="white--text headline">{{subject}}</span>              
               </v-avatar>              
             </v-layout>            
@@ -195,7 +195,7 @@ export default {
       infoacademy: [],
       tabs: ['tab-1', 'tab-2', 'tab-3'],
       tabTitle: ['1 - Questão', '2 - Comentário do Professor', '3 - Estatísticas'],
-      subjects: ['Matematica', 'Física', 'Química', 'Biologia', 'Ciências'],
+      subjects: ['Matematica', 'Física', 'Química', 'Ciências'],
       inset: false,
       active: null,
       question: null,
