@@ -172,12 +172,10 @@ export default {
                   <v-icon color="white" large>account_circle</v-icon></v-btn>
         </div>
         <div>
-        <v-menu v-if="logged_user" transition="slide-y-transition" bottom>
-          
-            <v-avatar dark slot="activator" class="ma-2">
-              <img :src="logged_user.avatar" alt="">
-            </v-avatar>
-          
+        <v-menu v-if="logged_user" transition="slide-y-transition" bottom>          
+          <v-avatar class="ma-2">
+            <img :src="logged_user.avatar" alt="">
+          </v-avatar>          
           <v-list>
             <v-list-tile :router="true" :to="{name: 'perfil'}">
               <v-list-tile-action>

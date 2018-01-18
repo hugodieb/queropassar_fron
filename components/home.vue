@@ -228,11 +228,11 @@ export default {
 .hero-cover {
   background: url(/static/images/aluno4.png) no-repeat center center fixed;
   background-size: cover;
-  height: 500px;  
+  height: 100vh;  
 }
 .hero {
   max-width: 100%;
-  height: 500px;
+  height: 100vh;
   margin: 0 auto;
   position: relative;
   background-color: rgba(0, 80, 0, 0.8);  
