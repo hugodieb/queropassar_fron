@@ -160,7 +160,7 @@ export default {
     >
       <v-toolbar-side-icon color="white" :disabled="!logged_user" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-spacer></v-spacer> 
-      <img src="images/logo7.png">
+      <img src="images/logo7.png" height="50em;">
       <v-spacer></v-spacer>      
       <v-toolbar-items class="">       
         <div>

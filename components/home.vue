@@ -2,23 +2,23 @@
   <main sm12>
     <div class="hero-cover">
       <div class="hero">
-        <v-container grid-list-md grid-list-xs text-xs-center>
+        <v-container text-xs-center>
           <div class="hero-content mb-5">
             <h5><span>Nerd Concursos</span></h5>
-            <p>Estudar para conquistar.</p>
-            <v-layout justify-space-around align-center>
+            <p>Estudar para conquistar.</p>                        
+          </div>
+          <v-layout class="hidden-xs-only" justify-space-around align-center>
               <v-avatar class="orange lighten-1" :size="avatarSize" v-for="subject in subjects">
                 <span class="white--text headline">{{subject}}</span>              
               </v-avatar>              
-            </v-layout>            
-          </div>
+            </v-layout>
         </v-container>
       </div>
     </div>
     <v-container grid-list-md text-xs-center>      
       <h4 color="orange" class="mb-4 mt-5">CONCURSOS EM DESTAQUE</h4>
       <v-layout row wrap>
-        <v-flex xs12>
+        <v-flex>
           <v-card dark color="white">
             <v-container fluid grid-list-md>
               <v-layout row wrap>
@@ -55,7 +55,7 @@
               </v-flex>
             </v-layout>
           </div>
-          <v-card dark color="white">
+          <v-card xs12 dark color="white">
             <v-tabs v-model="active">
               <v-tabs-bar class="white" dark>
                 <v-tabs-slider class="black"></v-tabs-slider>
@@ -73,22 +73,23 @@
                   :key="tab"
                   :id="'tab-' + tab"
                 >
-                  <v-flex xs12 sm12 offset-sm0 v-if="active == 'tab-tab-1'">
-                    <v-card color="grey">
+                  <v-flex xs12 v-if="active == 'tab-tab-1'">
+                    <v-card xs12 color="grey">
                       <v-card-title primary-title>
-                        Questão: <v-chip>Q3234</v-chip> - Direito Processual Penal / Ação Penal / Denuncia e Queixa {{active}}
+                        Questão: <v-chip>Q3234</v-chip> - Direito Processual Penal / Ação Penal / Denuncia e Queixa
                       </v-card-title>
                     </v-card>
-                    <v-card>
+                    <v-card xs12>
                       <v-card-title >
                         <strong>Ano:</strong> <span class="ml-1">2016</span> <span class="ml-5"><strong class="ml-1">Prova:</strong> FADESP - 2016 - PM-PA - Aspirante da Polícia Militar</span>
                       </v-card-title>
                       <v-divider light></v-divider>
-                      <v-card-title>
-                        <v-layout row wrap>
-                          <v-flex xs12 md12>
-                            <v-subheader class="text-xs-left">A ação penal, que constitui poder político constitucional de acudir aos tribunais para formular a pretensão acusatória, pode ser de vários tipos.<br> Sobre o assunto é correto afirmar que</v-subheader>
+                      <br>
+                      <v-card-title xs12>
+                        
+                          <v-flex xs12 sm12 md12>                            
                             <v-card flat>
+                              <v-subheader class="text-xs-left">A ação penal, que constitui poder político constitucional de acudir aos tribunais para formular a pretensão acusatória, pode ser de vários tipos.<br> Sobre o assunto é correto afirmar que</v-subheader>
                               <v-card-text>
                                 <v-radio-group v-model="question" column>
                                   <v-radio label="A) a ação penal pública é regida pelos princípios da oportunidade, da obrigatoriedade e da indisponibilidade.
@@ -129,7 +130,7 @@
                               </v-card-text>
                             </v-card>
                           </v-flex>
-                        </v-layout>
+                        
                       </v-card-title>
                     </v-card>
                   </v-flex>
@@ -247,7 +248,7 @@ export default {
   margin-left: 1px;
 }
 .hero-content {
-  padding-top: 20%;
+  margin-top: 25%;
 }
 .hero-content h2, h3{
   color: #393c16;

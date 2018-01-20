@@ -9,10 +9,8 @@
             ></v-card-media>
           </v-flex>                                  
         	<v-card-title primary class="title">{{academy.titulo}}</v-card-title>          
-        </v-layout>                    
-        <v-card-text
-          v-text="academy.descricao">
-        </v-card-text>
+        </v-layout>
+        <br />     
         <v-card>          
           <v-list class="teal accent-4">
             <v-list-tile avatar >
