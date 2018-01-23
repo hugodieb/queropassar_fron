@@ -121,7 +121,7 @@ export default {
       <v-flex>                 
           <v-list>
             <v-list-group v-for="item in items" :value="item.active" v-bind:key="item.title">
-              <v-list-tile slot="item" @click.stop="loadGuide(item.id)">
+              <v-list-tile slot="item" @click="loadGuide(item.id)">
                 <v-list-tile-action>
                   <v-icon>{{ item.icon }}</v-icon>
                 </v-list-tile-action>
@@ -132,7 +132,7 @@ export default {
                   <v-icon>keyboard_arrow_down</v-icon>
                 </v-list-tile-action>
               </v-list-tile>
-              <v-list-tile v-for="subItem in item.items" v-bind:key="subItem.title" @click.stop="loadGuide(subItem.id)">
+              <v-list-tile v-for="subItem in item.items" v-bind:key="subItem.title" @click="loadGuide(subItem.id)">
                 <v-list-tile-content>
                   <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
                 </v-list-tile-content>
