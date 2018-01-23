@@ -22,11 +22,27 @@ export default {
         icon: '',
       },
       items: [        
-        { icon: 'chrome_reader_mode', text: 'Disciplinas', id: 'discipline' },
-        { icon: 'movie', text: 'Vídeo Aulas', id: 'videos' },        
-        { icon: 'assignment', text: 'Anotaçṍes do Aluno', id: 'assignment' },        
-        { icon: 'feedback', text: 'Dúvidas do Aluno', id: 'feedback' },
-        { icon: 'notifications', text: 'Notificações', id: 'notifications' },
+        {
+         icon: 'chrome_reader_mode',
+         title: 'Disciplinas',
+         active: true,
+         items: [
+          { id: 'math', title: 'Matemática' },
+          { id: 'physical', title: 'Física'},
+          { id: 'chemistry', title: 'Química'},
+          { id: 'science', title: 'Ciênicas'}
+         ]
+        },        
+        {
+          id: 'assignments',
+          icon: 'assignment',
+          title: 'Tire uma dúvida',
+        },
+        {
+          id: 'notifications',
+          icon: 'notifications',
+          title: 'Notificações',
+        },        
       ],
       perfils: [
         {icon: 'person_outline', text: 'Aluno'},
@@ -69,18 +85,21 @@ export default {
     },
     loadGuide(type){
       switch (type){
-        case 'discipline':
-          this.$router.push({name: 'guides-disciplines'});
+        case 'math':
+          this.$router.push({name: 'guides-courses-matematica'});
           break;
-        case 'videos':
-          this.$router.push({name: 'guides-lessonsVideo'});
+        case 'physical':
+          this.$router.push({name: 'guides-courses-fisica'});
           break;
-        case 'assignment':
+        case 'chemistry':
+          this.$router.push({name: 'guides-courses-quimica'});
+          break;
+        case 'science':
+          this.$router.push({name: 'guides-courses-ciencias'});
+          break;        
+        case 'assignments':
           this.$router.push({name: 'guides-assignments'});
-          break;
-        case 'feedback':
-          this.$router.push({name: 'guides-feedbacks'});
-          break;
+          break;        
         case 'notifications':
           this.$router.push({name: 'guides-notifications'});
           break;
@@ -98,58 +117,33 @@ export default {
       light
       absolute
     >
-    <v-list dense>
-    <template v-for="(item, i) in items">
-      <v-layout
-        row
-        v-if="item.heading"
-        align-center
-        :key="i"
-      >
-        <v-flex xs6>
-          <v-subheader v-if="item.heading">
-            {{ item.heading }}
-          </v-subheader>
-        </v-flex>        
-      </v-layout>
-      <v-list-group v-else-if="item.children" v-model="item.model" no-action>
-        <v-list-tile slot="item" @click="">
-          <v-list-tile-action>
-            <v-icon>{{ item.model ? item.icon : item['icon-alt'] }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>
-              {{ item.text }}
-            </v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile
-          v-for="(child, i) in item.children"
-          :key="i"
-          @click=""          
-        >
-        <v-list-tile-action v-if="child.icon">
-          <v-icon>{{ child.icon }}</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-content>
-          <v-list-tile-title>
-            {{ child.text }}
-          </v-list-tile-title>
-        </v-list-tile-content>
-        </v-list-tile>
-      </v-list-group>
-      <v-list-tile v-else @click.stop="loadGuide(item.id)">
-        <v-list-tile-action>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-content>
-          <v-list-tile-title>
-            {{ item.text }}
-          </v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
-    </template>
-</v-list>
+    <v-layout row>
+      <v-flex>                 
+          <v-list>
+            <v-list-group v-for="item in items" :value="item.active" v-bind:key="item.title">
+              <v-list-tile slot="item" @click.stop="loadGuide(item.id)">
+                <v-list-tile-action>
+                  <v-icon>{{ item.icon }}</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                  <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                </v-list-tile-content>
+                <v-list-tile-action v-if="item.active">
+                  <v-icon>keyboard_arrow_down</v-icon>
+                </v-list-tile-action>
+              </v-list-tile>
+              <v-list-tile v-for="subItem in item.items" v-bind:key="subItem.title" @click.stop="loadGuide(subItem.id)">
+                <v-list-tile-content>
+                  <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
+                </v-list-tile-content>
+                <v-list-tile-action>
+                  <v-icon>{{ subItem.icon }}</v-icon>
+                </v-list-tile-action>
+              </v-list-tile>
+            </v-list-group>
+          </v-list>        
+      </v-flex>
+    </v-layout>
 </v-navigation-drawer>
     <v-toolbar
       id="mainmenu"      
@@ -159,8 +153,12 @@ export default {
       xs6
     >
       <v-toolbar-side-icon color="white" :disabled="!logged_user" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-spacer></v-spacer> 
-      <img src="images/logo7.png" height="50em;">
+      <v-spacer></v-spacer>
+      <v-toolbar-title>
+        <router-link :to="{name: 'index'}">
+          <img src="images/logo7.png" height="50em" class="toolbar-title">
+        </router-link>
+      </v-toolbar-title> 
       <v-spacer></v-spacer>      
       <v-toolbar-items class="">       
         <div>

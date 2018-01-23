@@ -8,10 +8,9 @@ export default {
 
 <template>
   <main>
-  <h1>Disciplinas</h1>
+  <h1>Fisica</h1>
 </main>
 </template>
 
 <style>
-
 </style>

@@ -8,10 +8,9 @@ export default {
 
 <template>
   <main>
-  <h1>Videos</h1>
+  <h1>Quimica</h1>
 </main>
 </template>
 
 <style>
-
 </style>

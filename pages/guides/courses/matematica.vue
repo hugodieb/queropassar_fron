@@ -8,10 +8,9 @@ export default {
 
 <template>
   <main>
-  <h1>Duvidas</h1>
+  <h1>Matematica</h1>
 </main>
 </template>
 
 <style>
-
 </style>
