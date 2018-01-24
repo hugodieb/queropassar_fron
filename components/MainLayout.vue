@@ -116,35 +116,36 @@ export default {
       v-model="drawer"
       light
       absolute
+      :disabled="!logged_user"
     >
-    <v-layout row>
-      <v-flex>                 
-          <v-list>
-            <v-list-group v-for="item in items" :value="item.active" v-bind:key="item.title">
-              <v-list-tile slot="item" @click.stop="loadGuide(item.id)">
-                <v-list-tile-action>
-                  <v-icon>{{ item.icon }}</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-content>
-                  <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                </v-list-tile-content>
-                <v-list-tile-action v-if="item.active">
-                  <v-icon>keyboard_arrow_down</v-icon>
-                </v-list-tile-action>
-              </v-list-tile>
-              <v-list-tile v-for="subItem in item.items" v-bind:key="subItem.title" @click.stop="loadGuide(subItem.id)">
-                <v-list-tile-content>
-                  <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
-                </v-list-tile-content>
-                <v-list-tile-action>
-                  <v-icon>{{ subItem.icon }}</v-icon>
-                </v-list-tile-action>
-              </v-list-tile>
-            </v-list-group>
-          </v-list>        
-      </v-flex>
-    </v-layout>
-</v-navigation-drawer>
+      <v-layout row>
+        <v-flex>                 
+            <v-list>
+              <v-list-group v-for="item in items" :value="item.active" v-bind:key="item.title">
+                <v-list-tile slot="item" @click.stop="loadGuide(item.id)">
+                  <v-list-tile-action>
+                    <v-icon>{{ item.icon }}</v-icon>
+                  </v-list-tile-action>
+                  <v-list-tile-content>
+                    <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                  </v-list-tile-content>
+                  <v-list-tile-action v-if="item.active">
+                    <v-icon>keyboard_arrow_down</v-icon>
+                  </v-list-tile-action>
+                </v-list-tile>
+                <v-list-tile v-for="subItem in item.items" v-bind:key="subItem.title" @click.stop="loadGuide(subItem.id)">
+                  <v-list-tile-content>
+                    <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
+                  </v-list-tile-content>
+                  <v-list-tile-action>
+                    <v-icon>{{ subItem.icon }}</v-icon>
+                  </v-list-tile-action>
+                </v-list-tile>
+              </v-list-group>
+            </v-list>        
+        </v-flex>
+      </v-layout>
+    </v-navigation-drawer>
     <v-toolbar
       id="mainmenu"      
       app
@@ -159,8 +160,7 @@ export default {
           <img src="images/logo7.png" height="50em" class="toolbar-title">
         </router-link>
       </v-toolbar-title> 
-      <v-spacer></v-spacer>      
-      <v-toolbar-items class="">       
+      <v-spacer></v-spacer>           
         <div>
           <v-btn fab flat class="ma-1"
                   v-if="!logged_user" @click="open_login_social_fake($event)"
@@ -168,26 +168,26 @@ export default {
                   <v-icon color="white" large>account_circle</v-icon></v-btn>
         </div>
         <div>
-        <v-menu v-if="logged_user" transition="slide-y-transition" bottom>          
-            <v-avatar slot="activator" class="ma-2">
-              <img :src="logged_user.avatar" alt="userAvatar">
-            </v-avatar>          
-          <v-list>
-            <v-list-tile :router="true" :to="{name: 'perfil'}">
-              <v-list-tile-action>
-                <v-icon>exit_to_app</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-title v-text="'Editar Perfil'"></v-list-tile-title>
-            </v-list-tile>
-            <v-list-tile @click="logoff()">
-              <v-list-tile-action>
-                <v-icon>exit_to_app</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-title v-text="'Sair'"></v-list-tile-title>
-            </v-list-tile>
-          </v-list>
-        </v-menu></div>
-      </v-toolbar-items>
+          <v-menu v-if="logged_user" transition="slide-y-transition" bottom>          
+              <v-avatar slot="activator" class="ma-2">
+                <img :src="logged_user.avatar" alt="userAvatar">
+              </v-avatar>          
+            <v-list>
+              <v-list-tile :router="true" :to="{name: 'perfil'}">
+                <v-list-tile-action>
+                  <v-icon>exit_to_app</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-title v-text="'Editar Perfil'"></v-list-tile-title>
+              </v-list-tile>
+              <v-list-tile @click="logoff()">
+                <v-list-tile-action>
+                  <v-icon>exit_to_app</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-title v-text="'Sair'"></v-list-tile-title>
+              </v-list-tile>
+            </v-list>
+          </v-menu>
+        </div>      
     </v-toolbar>
     <main>
       <v-content>

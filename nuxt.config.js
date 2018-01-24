@@ -12,6 +12,7 @@ module.exports = {
     extend (config, context){
       home = config.resolve.alias['~'];
       config.resolve.alias['~apijs'] = home + '/components/api/' + _apijs;
+      config.resolve.alias['vue'] = 'vue/dist/vue.common';
     }
   },
   router: {

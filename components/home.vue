@@ -3,15 +3,15 @@
     <div class="hero-cover">
       <div class="hero">
         <v-container text-xs-center>
-          <div class="hero-content mb-5">
-            <h5><span>Nerd Concursos</span></h5>
-            <p>Estudar para conquistar.</p>                        
+          <div class="hero-content mb-2">
+            <h1 class="white--text mb-2 display-3 text-xs-center">Nerd Concursos</h1>
+            <div class="subheading white--text mb-3 text-xs-center">Seu guia de estudos para vestibular</div>    
           </div>
-          <v-layout class="hidden-xs-only" justify-space-around align-center>
-              <v-avatar class="orange lighten-1" :size="avatarSize" v-for="subject in subjects">
-                <span class="white--text headline">{{subject}}</span>              
-              </v-avatar>              
-            </v-layout>
+          <v-layout class="hidden-xs-only hidden-sm-only" justify-space-around align-center>
+            <v-avatar class="orange lighten-1" :size="avatarSize" v-for="subject in subjects">
+              <span class="white--text headline">{{subject}}</span>              
+            </v-avatar>              
+          </v-layout>
         </v-container>
       </div>
     </div>

@@ -1,4 +1,7 @@
+import Vue from 'vue'
+
 var logged_user = null;
+var _COURSEDB = _coursedb();
 
 
 export default {
@@ -80,6 +83,80 @@ function list_freeVideos(){
   var demoVideos = _clone(demoVideos);
 
   return demoVideos;
+}
+
+function list_courses(){
+  return Vue.util.extends({}, _COURSEDB)
+}
+
+function _COURSEDB(){
+  return [
+    {
+      code: 'matematica',
+      name: 'Matemática',
+      teacher: 'Jairo Luis da Silva',
+      icon: '',
+      banner: '',
+      contents: [
+        {
+          kind: 'youtube', ref: 'XySESQb3TWE', name: 'Polinômios 1',
+          kind: 'youtube', ref: 'uNF6HhKPJ6c', name: 'Polinômios 2',
+          kind: 'youtube', ref: 'E6Geqt-HhKs', name: 'Funções 2º Grau',
+          kind: 'youtube', ref: 'L7g3Jt9BpGU', name: 'Geometria Analítica I',
+          kind: 'youtube', ref: '1yaR2cUDfmk', name: 'Geometria Analítica II',
+        },
+      ]
+    },
+    {
+      code: 'fisica',
+      name: 'Física',
+      teacher: 'Rodrigo Buchfink',
+      icon: '',
+      banner: '',
+      contents: [
+        {
+          kind: 'youtube', ref: 'bYqYB6ESDA8', name: 'Mecânica - Movimentos',
+          kind: 'youtube', ref: 'a0SnNEapKW4', name: 'Dinâmica - Newton e aplicações',
+          kind: 'youtube', ref: 'Nh2RponIYY8', name: 'Dinâmica - Energia e quantidade de movimento',
+          kind: 'youtube', ref: 'DfOMiv8Fobw', name: 'Hidrostática - Leis de Stevin, Pascal e Arquimedes',
+          kind: 'youtube', ref: '2EqhCpXals8', name: 'Ondas e Fenômenos Ondulatórios',
+        },
+      ]
+    },
+    {
+      code: 'quimica',
+      name: 'Química',
+      teacher: 'Ruffini',
+      icon: '',
+      banner: '',
+      contents: [
+        {
+          kind: 'youtube', ref: 'S2BEN_Pxqjc', name: 'Sistemas Materias',
+          kind: 'youtube', ref: '_autqR4bU4A', name: 'Tabela Periódica',
+          kind: 'youtube', ref: 'VDJKW2xFs84', name: 'Estequiometria',
+          kind: 'youtube', ref: 'J7a6FtRb2Yk', name: 'Soluções',
+          kind: 'youtube', ref: 'qaitmlBzi98', name: 'Ligações químicas',
+        },
+      ]
+    },
+    {
+      code: 'biologia',
+      name: 'Biologia',
+      teacher: 'Zé Rucker',
+      icon: '',
+      banner: '',
+      contents: [
+        {
+          kind: 'youtube', ref: 'HfpNXRv6kbs', name: 'Citologia I',
+          kind: 'youtube', ref: 'P7lmM6IunoQ', name: 'Citologia II',
+          kind: 'youtube', ref: 'RsDHpsxMKjc', name: 'Cadeias, teias e pirâmides alimentares',
+          kind: 'youtube', ref: 'iOOadfaWqBo', name: 'Relações Biológicas',
+          kind: 'youtube', ref: 'xppW3gmH7FM', name: 'Genética I',
+          kind: 'youtube', ref: 'AeNXtBd-Q2s', name: 'Genética II',
+        },
+      ]
+    },
+  ]
 }
 
 
